@@ -1,0 +1,122 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+T123S[start]
+A78S[defDigit_copy, Считаем переполнения из + в -]
+A77S
+T78S[defDigit_copy сохраняем]
+E110S[void -1_fromIndex,Безусловное вычитание 1]
+A78S[defDigit_copy]
+G100S[void add_One_To_CurrentRazr (+)->(-)]
+E31S[start]
+T123[start 2]
+A78S[defDigit_copy, Считаем переполнения из - в +]
+A77S
+T78S[defDigit_copy сохраняем]
+E116S[void -1_fromIndex,Безусловное вычитание 1]
+A78S[defDigit_copy]
+E105S[void add_One_To_CurrentRazr (-)->(+)]
+G40S[start 2]
+A81S[index]
+E31S[start,Проверяем что цикл не закончился]
+T123S[Провярем не закончилось ли заполнение]
+A83S[число заполняемых разрядов]
+S79S[ONE]
+U83S
+G76S[end]
+T123S[Сдвигаем исходное число влево на 1]
+A77S[defDig]
+L0L
+U77S[сохраняем изменения]
+U78S[сохраняем изменения]
+T123S[index=9]
+A80S[defIndex]
+T81S[index]
+T123S[Меняем индексы в методах add_One_To_CurrentRazr]
+A82S[TWO_FOR_CHANGE_RAZR]
+A101S[]
+T101S
+A82S[TWO_FOR_CHANGE_RAZR]
+A103S[]
+T103S
+A82S[TWO_FOR_CHANGE_RAZR]
+A106S[]
+T106S
+A82S[TWO_FOR_CHANGE_RAZR]
+A108S
+T108S
+E31S[start,БЕЗУСЛОВНО]
+Z0S[end-----------------КОНСТАНТЫ---------------]
+S0S[defDig=0.75]
+S0S[defDig_copy=0.75]
+P0L[ONE]
+P0L[defIndex i=9]
+P0L[index i=9]
+P1S[TWO,для изменения индекс текущего разряда]
+P8S[число заполняемых разрядов]
+P0S[1 разряд]
+P0S[2 разряд]
+P0S[3 разряд]
+P0S[4 разряд]
+P0S[5 разряд]
+P0S[6 разряд]
+P0S[7 разряд]
+P0S[8 разряд]
+P0S[9 разряд]
+P0S[10 разряд]
+P0S[11 разряд]
+P0S[12 разряд]
+P0S[13 разряд]
+P0S[14 разряд]
+P0S[15 разряд]
+P0S[16 разряд------------МЕТОДЫ---------------]
+T123S[void add_One_To_CurrentRazr (+)->(-)]
+A84S[1 разряд]
+A79S[ONE]
+T84S[1 разряд]
+E40S[goto+2,БЕЗУСЛОВНО]
+T123S[void add_One_To_CurrentRazr (-)->(+)]
+A84S[1 разряд]
+A79S[ONE]
+T84S[1 разряд]
+E48S[goto+2,БЕЗУСЛОВНО]
+T123S[void -1_fromIndex]
+A81S[index, Вычитаем 1 из текущего состояния цикла]
+G49S[проверка индекса массива]
+S79S[ONE, Вычитаем 1]
+T81S[index, Сохраняем в переменную цикла]
+E37S[goto+1,БЕЗУСЛОВНО]
+T123S[void -1_fromIndex]
+A81S[index, Вычитаем 1 из текущего состояния цикла]
+G49S[проверка индекса массива]
+S79S[ONE, Вычитаем 1]
+T81S[index, Сохраняем в переменную цикла]
+E45S[goto+1,БЕЗУСЛОВНО]
+Z0S

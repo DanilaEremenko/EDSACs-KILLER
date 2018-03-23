@@ -1,7 +1,6 @@
-package WhaBoutThisMauriceBitch;
-
 import org.junit.Test;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 import static org.junit.Assert.*;
@@ -11,8 +10,8 @@ public class IndexReplacerTest {
     @Test
     public void alphabetMake() {
         HashMap<String, Integer> rightAlphabet = new HashMap<>();
-        rightAlphabet.put("<a>", 1);
-        rightAlphabet.put("<b>", 2);
+        rightAlphabet.put("<a>", 31);
+        rightAlphabet.put("<b>", 32);
 
         String input = "skdksdkds var_a_var\n" +
                 "adsadsads var_b_var";
@@ -60,71 +59,46 @@ public class IndexReplacerTest {
 
     }
 
-
+    @Test
+    public void easyWayFromFile() throws IOException {
+        String eW = IndexReplacer.easyWay(realExampleInput(), false);
+        String eWFF = IndexReplacer.easyWayFromFile("Tests/ReplacedFile.txt", false);
+        assertEquals(eW+"\n", eWFF);
+    }
 
     private String realExampleInput() {
-        return "\n" +
-                "\n" +
-                "\n" +
-                "\n" +
-                "\n" +
-                "\n" +
-                "\n" +
-                "\n" +
-                "\n" +
-                "\n" +
-                "\n" +
-                "\n" +
-                "\n" +
-                "\n" +
-                "\n" +
-                "\n" +
-                "\n" +
-                "\n" +
-                "\n" +
-                "\n" +
-                "\n" +
-                "\n" +
-                "\n" +
-                "\n" +
-                "\n" +
-                "\n" +
-                "\n" +
-                "\n" +
-                "\n" +
-                "\n" +
-                "T<delete>S[var_start_var]\n" +
-                "[]A<defDigit_copy>S[defDigit_copy, Считаем переполнения из + в -]\n" +
+        return "T<delete>S[var_start_var]\n" +
+                "A<defDigit_copy>S[defDigit_copy, Считаем переполнения из + в -]\n" +
                 "A<defDigit>S[defDigit]\n" +
                 "T<defDigit_copy>S[defDigit_copy сохраняем]\n" +
-                "[goto ]E110S[void -1_fromIndex,Безусловное вычитание 1]\n" +
+                "E110S[void -1_fromIndex,Безусловное вычитание 1]\n" +
                 "A<defDigit_copy>S[defDigit_copy]\n" +
-                "[goto]G<void add_One_To_CurrentRazr (+)->(-)>S[var_jump1_var,void add_One_To_CurrentRazr (+)->(-)]\n" +
-                "[goto]E<start>S[start]\n" +
+                "G<void add_One_To_CurrentRazr (+)->(-)>S[var_jump1_var,void add_One_To_CurrentRazr (+)->(-)]\n" +
+                "E<start>S[start]\n" +
                 "T<delete>[start 2]\n" +
-                "[]A<defDigit_copy>S[defDigit_copy,var_start 2_var]\n" +
+                "A<defDigit_copy>S[defDigit_copy,var_start 2_var]\n" +
                 "A<defDigit>S\n" +
                 "T<defDigit_copy>S[defDigit_copy сохраняем]\n" +
-                "[goto]E<void subtOnefromIndex2>S[void -1_fromIndex,Безусловное вычитание 1]\n" +
+                "E<void subtOnefromIndex2>S[void -1_fromIndex,Безусловное вычитание 1]\n" +
                 "A<defDigit_copy>S[defDigit_copy]\n" +
-                "[goto 2]E<void add_One_To_CurrentRazr (-)->(+)>S[var_jump2_var,void add_One_To_CurrentRazr (-)->(+)]\n" +
-                "[goto]G<start 2>S[start 2]\n" +
+                "E<void add_One_To_CurrentRazr (-)->(+)>S[var_jump2_var,void add_One_To_CurrentRazr (-)->(+)]\n" +
+                "G<start 2>S[start 2]\n" +
                 "A<index>S[index]\n" +
                 "E<start>S[var_cycleEnd_var,start,Проверяем что цикл не закончился]\n" +
-                "[]T<delete>S[var_nextLongStep_var, Провярем не закончилось ли заполнение]\n" +
+                "T<delete>S[var_nextLongStep_var, Провярем не закончилось ли заполнение]\n" +
                 "A<число заполняемых разрядов>S[число заполняемых разрядов]\n" +
                 "S<ONE>S[ONE]\n" +
                 "U<число заполняемых разрядов>S\n" +
                 "G<exit>S[exit]\n" +
-                "[]T<delete>S[Сдвигаем исходное число влево на 1]\n" +
+                "T<delete>S[Сдвигаем исходное число влево на 1]\n" +
                 "A<defDigit>S[defDig]\n" +
                 "L0L\n" +
                 "U<defDigit>S[сохраняем изменения]\n" +
                 "U<defDigit_copy>S[сохраняем изменения]\n" +
-                "[]T<delete>S[index=9]\n" +
+                "T<delete>S[index=9]\n" +
                 "A<defIndex>S[defIndex]\n" +
                 "T<index>S[index]\n" +
-                "[]T<delete>S[Меняем индексы в методах add_One_To_CurrentRazr]\n" +
+                "T<delete>S[Меняем индексы в методах add_One_To_CurrentRazr]\n" +
                 "A<TWO>S[TWO_FOR_CHANGE_RAZR]\n" +
                 "A<changedInstructionOne>S[]\n" +
                 "T<changedInstructionOne>S\n" +
@@ -162,30 +136,30 @@ public class IndexReplacerTest {
                 "P0S[14 разряд]\n" +
                 "P0S[15 разряд]\n" +
                 "P0S[16 разряд------------МЕТОДЫ---------------]\n" +
-                "[1]T<delete>S[var_void add_One_To_CurrentRazr (+)->(-)_var]\n" +
+                "T<delete>S[var_void add_One_To_CurrentRazr (+)->(-)_var]\n" +
                 "A<firstRazr>S[1 разряд,var_changedInstructionOne_var]\n" +
                 "A<ONE>S\n" +
                 "T<firstRazr>S[1 разряд,var_changedInstructionTwo_var ]\n" +
                 "E<start 2>S[goto+2,БЕЗУСЛОВНО]\n" +
-                "[2]T<delete>S[var_void add_One_To_CurrentRazr (-)->(+)_var]\n" +
+                "T<delete>S[var_void add_One_To_CurrentRazr (-)->(+)_var]\n" +
                 "A<firstRazr>S[1 разряд,var_changedInstructionThree_var]\n" +
                 "A<ONE>S[ONE]\n" +
                 "T<firstRazr>S[1 разряд,var_changedInstructionFour_var]\n" +
                 "E<cycleEnd>S[goto+2,БЕЗУСЛОВНО]\n" +
-                "[1]T<delete>S[var_void subtOnefromIndex1_var]\n" +
+                "T<delete>S[var_void subtOnefromIndex1_var]\n" +
                 "A<index>S[index, Вычитаем 1 из текущего состояния цикла]\n" +
                 "G<nextLongStep>S[проверка индекса массива]\n" +
                 "S<ONE>S[ONE, Вычитаем 1]\n" +
                 "T<index>S[index, Сохраняем в переменную цикла]\n" +
                 "E<jump1>S[goto+1,БЕЗУСЛОВНО]\n" +
-                "[2]T<delete>S[var_void subtOnefromIndex2_var]\n" +
+                "T<delete>S[var_void subtOnefromIndex2_var]\n" +
                 "A<index>S[index, Вычитаем 1 из текущего состояния цикла]\n" +
                 "G<nextLongStep>S[проверка индекса массива]\n" +
                 "S<ONE>S[ONE, Вычитаем 1]\n" +
                 "T<index>S[index, Сохраняем в переменную цикла]\n" +
                 "E<jump2>S[goto+1,БЕЗУСЛОВНО]\n" +
                 "Z0S\n" +
-                "var_delete_var\n";
+                "var_delete_var";
     }
 
     private String realExampleOutput() {
@@ -220,37 +194,37 @@ public class IndexReplacerTest {
                 "\n" +
                 "\n" +
                 "T123S[start]\n" +
-                "[]A78S[defDigit_copy, Считаем переполнения из + в -]\n" +
+                "A78S[defDigit_copy, Считаем переполнения из + в -]\n" +
                 "A77S\n" +
                 "T78S[defDigit_copy сохраняем]\n" +
-                "[goto ]E110S[void -1_fromIndex,Безусловное вычитание 1]\n" +
+                "E110S[void -1_fromIndex,Безусловное вычитание 1]\n" +
                 "A78S[defDigit_copy]\n" +
-                "[goto]G100S[void add_One_To_CurrentRazr (+)->(-)]\n" +
-                "[goto]E31S[start]\n" +
+                "G100S[void add_One_To_CurrentRazr (+)->(-)]\n" +
+                "E31S[start]\n" +
                 "T123[start 2]\n" +
-                "[]A78S[defDigit_copy, Считаем переполнения из - в +]\n" +
+                "A78S[defDigit_copy, Считаем переполнения из - в +]\n" +
                 "A77S\n" +
                 "T78S[defDigit_copy сохраняем]\n" +
-                "[goto]E116S[void -1_fromIndex,Безусловное вычитание 1]\n" +
+                "E116S[void -1_fromIndex,Безусловное вычитание 1]\n" +
                 "A78S[defDigit_copy]\n" +
-                "[goto 2]E105S[void add_One_To_CurrentRazr (-)->(+)]\n" +
-                "[goto]G40S[start 2]\n" +
+                "E105S[void add_One_To_CurrentRazr (-)->(+)]\n" +
+                "G40S[start 2]\n" +
                 "A81S[index]\n" +
                 "E31S[start,Проверяем что цикл не закончился]\n" +
-                "[]T123S[Провярем не закончилось ли заполнение]\n" +
+                "T123S[Провярем не закончилось ли заполнение]\n" +
                 "A83S[число заполняемых разрядов]\n" +
                 "S79S[ONE]\n" +
                 "U83S\n" +
                 "G76S[end]\n" +
-                "[]T123S[Сдвигаем исходное число влево на 1]\n" +
+                "T123S[Сдвигаем исходное число влево на 1]\n" +
                 "A77S[defDig]\n" +
                 "L0L\n" +
                 "U77S[сохраняем изменения]\n" +
                 "U78S[сохраняем изменения]\n" +
-                "[]T123S[index=9]\n" +
+                "T123S[index=9]\n" +
                 "A80S[defIndex]\n" +
                 "T81S[index]\n" +
-                "[]T123S[Меняем индексы в методах add_One_To_CurrentRazr]\n" +
+                "T123S[Меняем индексы в методах add_One_To_CurrentRazr]\n" +
                 "A82S[TWO_FOR_CHANGE_RAZR]\n" +
                 "A101S[]\n" +
                 "T101S\n" +
@@ -288,23 +262,23 @@ public class IndexReplacerTest {
                 "P0S[14 разряд]\n" +
                 "P0S[15 разряд]\n" +
                 "P0S[16 разряд------------МЕТОДЫ---------------]\n" +
-                "[1]T123S[void add_One_To_CurrentRazr (+)->(-)]\n" +
+                "T123S[void add_One_To_CurrentRazr (+)->(-)]\n" +
                 "A84S[1 разряд]\n" +
                 "A79S[ONE]\n" +
                 "T84S[1 разряд]\n" +
                 "E40S[goto+2,БЕЗУСЛОВНО]\n" +
-                "[2]T123S[void add_One_To_CurrentRazr (-)->(+)]\n" +
+                "T123S[void add_One_To_CurrentRazr (-)->(+)]\n" +
                 "A84S[1 разряд]\n" +
                 "A79S[ONE]\n" +
                 "T84S[1 разряд]\n" +
                 "E48S[goto+2,БЕЗУСЛОВНО]\n" +
-                "[1]T123S[void -1_fromIndex]\n" +
+                "T123S[void -1_fromIndex]\n" +
                 "A81S[index, Вычитаем 1 из текущего состояния цикла]\n" +
                 "G49S[проверка индекса массива]\n" +
                 "S79S[ONE, Вычитаем 1]\n" +
                 "T81S[index, Сохраняем в переменную цикла]\n" +
                 "E37S[goto+1,БЕЗУСЛОВНО]\n" +
-                "[2]T123S[void -1_fromIndex]\n" +
+                "T123S[void -1_fromIndex]\n" +
                 "A81S[index, Вычитаем 1 из текущего состояния цикла]\n" +
                 "G49S[проверка индекса массива]\n" +
                 "S79S[ONE, Вычитаем 1]\n" +
@@ -312,5 +286,7 @@ public class IndexReplacerTest {
                 "E45S[goto+1,БЕЗУСЛОВНО]\n" +
                 "Z0S\n";
     }
+
+
 
 }
