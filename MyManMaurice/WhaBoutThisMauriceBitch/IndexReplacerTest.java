@@ -2,35 +2,98 @@ package WhaBoutThisMauriceBitch;
 
 import org.junit.Test;
 
+import java.util.HashMap;
+
 import static org.junit.Assert.*;
 
 public class IndexReplacerTest {
 
     @Test
-    public void alphabetMaker() {
+    public void alphabetMake() {
+        HashMap<String, Integer> rightAlphabet = new HashMap<>();
+        rightAlphabet.put("<a>", 1);
+        rightAlphabet.put("<b>", 2);
+
+        String input = "skdksdkds var_a_var\n" +
+                "adsadsads var_b_var";
+        HashMap<String, Integer> alphabet = IndexReplacer.alphabetMake(input);
+        assertEquals(alphabet, rightAlphabet);
 
     }
 
     @Test
-    public void replace() {
+    public void replaceIndices() {
 
     }
+
     @Test
-    public void deleteComments(){
-        String input="asadsad[asdsadsadsadsadsad]";
-        String rightOutput="asadsad";
-        assertEquals(IndexReplacer.deleteComments(input),rightOutput);
+    public void deleteComments() {
+        String input1 = "asadsad[asdsadsadsadsadsad]";
+        String output1 = "asadsad";
+        assertEquals(IndexReplacer.deleteComments(input1), output1);
+
+        String input2 = "asadsad[asdsadsadsadsadsad]\n\t" +
+                "asadsad[asdsadsadsadsadsad]";
+        String output2 = "asadsad\n\t" +
+                "asadsad";
+        assertEquals(IndexReplacer.deleteComments(input2), output2);
+
     }
 
-    String firstExampleInput(){
-        return "dsdssd[]";
+    @Test
+    public void realtest() {
+        String input = realExampleInput();
+        String output = realExampleOutput();
+        HashMap<String, Integer> alphabet = IndexReplacer.alphabetMake(input);
+
+        input = IndexReplacer.deleteComments(input);
+        output = IndexReplacer.deleteComments(output);
+
+        assertEquals(output, IndexReplacer.replaceIndices(input, alphabet));
+
     }
 
-    String firstExampleOutput(){
-        return "";
+    @Test
+    public void easyWay() {
+        String output = IndexReplacer.deleteComments(realExampleOutput());
+        assertEquals(output, IndexReplacer.easyWay(realExampleInput(), false));
+
     }
-    String secondExampleInput(){
-        return "T<delete>S[var_start_var]\n" +
+
+
+
+    private String realExampleInput() {
+        return "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "T<delete>S[var_start_var]\n" +
                 "[]A<defDigit_copy>S[defDigit_copy, Считаем переполнения из + в -]\n" +
                 "A<defDigit>S[defDigit]\n" +
                 "T<defDigit_copy>S[defDigit_copy сохраняем]\n" +
@@ -101,8 +164,8 @@ public class IndexReplacerTest {
                 "P0S[16 разряд------------МЕТОДЫ---------------]\n" +
                 "[1]T<delete>S[var_void add_One_To_CurrentRazr (+)->(-)_var]\n" +
                 "A<firstRazr>S[1 разряд,var_changedInstructionOne_var]\n" +
-                "A<ONE>S[var_ONE_var]\n" +
-                "T<firstRazr>S[1 разряд,var_changedInstructionTWO_var ]\n" +
+                "A<ONE>S\n" +
+                "T<firstRazr>S[1 разряд,var_changedInstructionTwo_var ]\n" +
                 "E<start 2>S[goto+2,БЕЗУСЛОВНО]\n" +
                 "[2]T<delete>S[var_void add_One_To_CurrentRazr (-)->(+)_var]\n" +
                 "A<firstRazr>S[1 разряд,var_changedInstructionThree_var]\n" +
@@ -125,7 +188,7 @@ public class IndexReplacerTest {
                 "var_delete_var\n";
     }
 
-    String secondExampleOutput(){
+    private String realExampleOutput() {
         return "\n" +
                 "\n" +
                 "\n" +
@@ -247,9 +310,7 @@ public class IndexReplacerTest {
                 "S79S[ONE, Вычитаем 1]\n" +
                 "T81S[index, Сохраняем в переменную цикла]\n" +
                 "E45S[goto+1,БЕЗУСЛОВНО]\n" +
-                "Z0S\n" +
-                "\n";
+                "Z0S\n";
     }
-
 
 }
