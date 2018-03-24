@@ -28,95 +28,95 @@
 
 
 
-﻿T123S
-A78S
+T123S[var_start_var]
+A78S[defDigit_copy, Считаем переполнения из + в -]
+A77S[defDigit]
+T78S[defDigit_copy сохраняем]
+E110S[void -1_fromIndex,Безусловное вычитание 1]
+A78S[var_jump1_var,defDigit_copy]
+G100S[void add_One_To_CurrentRazr (+)->(-)]
+E31S[start]
+T123S[var_start 2_var]
+A78S[defDigit_copy]
 A77S
-T78S
-E110S
-A78S
-G100S
-E31S
-T123
-A78S
-A77S
-T78S
-E116S
-A78S
-E105S
-G40S
-A81S
-E31S
-T123S
-A83S
-S79S
+T78S[defDigit_copy сохраняем]
+E116S[void -1_fromIndex,Безусловное вычитание 1]
+A78S[var_jump2_var,defDigit_copy]
+E105S[void add_One_To_CurrentRazr (-)->(+)]
+G39S[start 2]
+A81S[index]
+E31S[var_cycleEnd_var,start,Проверяем что цикл не закончился]
+T123S[var_nextLongStep_var, Провярем не закончилось ли заполнение]
+A83S[число заполняемых разрядов]
+S79S[ONE]
 U83S
-G76S
-T123S
-A77S
+G76S[exit]
+T123S[Сдвигаем исходное число влево на 1]
+A77S[defDig]
 L0L
-U77S
-U78S
-T123S
-A80S
-T81S
-T123S
-A82S
-A101S
+U77S[сохраняем изменения]
+U78S[сохраняем изменения]
+T123S[index=9]
+A80S[defIndex]
+T81S[index]
+T123S[Меняем индексы в методах add_One_To_CurrentRazr]
+A82S[TWO_FOR_CHANGE_RAZR]
+A101S[]
 T101S
-A82S
-A103S
+A82S[TWO_FOR_CHANGE_RAZR]
+A103S[]
 T103S
-A82S
-A106S
+A82S[TWO_FOR_CHANGE_RAZR]
+A106S[]
 T106S
-A82S
+A82S[TWO_FOR_CHANGE_RAZR]
 A108S
 T108S
-E31S
+E31S[start,БЕЗУСЛОВНО]
+Z0S[var_exit_var-----------------КОНСТАНТЫ---------------]
+P000100000000000000S[var_defDigit_var=0.75]
+P000100000000000000S[var_defDigit_copy_var=0.75]
+P0L[var_ONE_var]
+P4S[var_defIndex_var i=8]
+P4S[var_index_var i=8]
+P1S[var_TWO_var,для изменения индекс текущего разряда]
+P8S[var_число заполняемых разрядов_var]
+P0S[var_firstRazr_var]
+P0S[2 разряд]
+P0S[3 разряд]
+P0S[4 разряд]
+P0S[5 разряд]
+P0S[6 разряд]
+P0S[7 разряд]
+P0S[8 разряд]
+P0S[9 разряд]
+P0S[10 разряд]
+P0S[11 разряд]
+P0S[12 разряд]
+P0S[13 разряд]
+P0S[14 разряд]
+P0S[15 разряд]
+P0S[16 разряд------------МЕТОДЫ---------------]
+T123S[var_void add_One_To_CurrentRazr (+)->(-)_var]
+A84S[1 разряд,var_changedInstructionOne_var]
+A79S
+T84S[1 разряд,var_changedInstructionTwo_var ]
+E39S[goto+2,БЕЗУСЛОВНО]
+T123S[var_void add_One_To_CurrentRazr (-)->(+)_var]
+A84S[1 разряд,var_changedInstructionThree_var]
+A79S[ONE]
+T84S[1 разряд,var_changedInstructionFour_var]
+E48S[goto+2,БЕЗУСЛОВНО]
+T123S[var_void subtOnefromIndex1_var]
+A81S[index, Вычитаем 1 из текущего состояния цикла]
+G49S[проверка индекса массива]
+S79S[ONE, Вычитаем 1]
+T81S[index, Сохраняем в переменную цикла]
+E36S[goto+1,БЕЗУСЛОВНО]
+T123S[var_void subtOnefromIndex2_var]
+A81S[index, Вычитаем 1 из текущего состояния цикла]
+G49S[проверка индекса массива]
+S79S[ONE, Вычитаем 1]
+T81S[index, Сохраняем в переменную цикла]
+E44S[goto+1,БЕЗУСЛОВНО]
 Z0S
-S0S
-S0S
-P0L
-P0L
-P0L
-P1S
-P8S
-P0S
-P0S
-P0S
-P0S
-P0S
-P0S
-P0S
-P0S
-P0S
-P0S
-P0S
-P0S
-P0S
-P0S
-P0S
-P0S
-T123S
-A84S
-A79S
-T84S
-E40S
-T123S
-A84S
-A79S
-T84S
-E48S
-T123S
-A81S
-G49S
-S79S
-T81S
-E37S
-T123S
-A81S
-G49S
-S79S
-T81S
-E45S
-Z0S
