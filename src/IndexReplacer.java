@@ -30,20 +30,13 @@ public class IndexReplacer {
     }
 
 
-    public static String easyWayFromFile(String inputFile, boolean withComments) throws IOException {
+    public static String easyWayFromFile(String inputFile, boolean withComments) {
         return easyWay(parseFromFile(inputFile), withComments);
     }
 
 
     public static void easyWayFromFile(String inputFile, String outputFile, boolean withComments) {
-        BufferedWriter bufferedWriter = null;
-        try {
-            bufferedWriter = new BufferedWriter(new FileWriter(outputFile));
-            bufferedWriter.write(easyWayFromFile(inputFile, withComments));
-            bufferedWriter.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        writeToFile(outputFile, easyWayFromFile(inputFile, withComments));
     }
 
 
@@ -91,21 +84,31 @@ public class IndexReplacer {
     }
 
 
-    public static void writeToFile(String URL, String text) throws IOException {
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(URL));
-        bufferedWriter.write(text);
-        bufferedWriter.flush();
-        bufferedWriter.close();
+    public static void writeToFile(String URL, String text) {
+
+        try {
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(URL));
+            bufferedWriter.write(text);
+            bufferedWriter.flush();
+            bufferedWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
-    public static String parseFromFile(String URL) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new FileReader(URL));
+    public static String parseFromFile(String URL) {
+
         String edsacCode = "";
-        int c;
-        while ((c = bufferedReader.read()) != -1)
-            edsacCode += Character.toString((char) c);
-        bufferedReader.close();
+        try {
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(URL));
+            int c;
+            while ((c = bufferedReader.read()) != -1)
+                edsacCode += Character.toString((char) c);
+            bufferedReader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return edsacCode;
     }
 
