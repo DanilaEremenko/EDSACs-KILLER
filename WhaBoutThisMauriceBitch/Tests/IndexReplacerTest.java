@@ -7,6 +7,7 @@ import static org.junit.Assert.*;
 
 public class IndexReplacerTest {
 
+
     @Test
     public void alphabetMake() {
         HashMap<String, Integer> rightAlphabet = new HashMap<>();
@@ -20,10 +21,12 @@ public class IndexReplacerTest {
 
     }
 
+
     @Test
     public void replaceIndices() {
 
     }
+
 
     @Test
     public void deleteComments() {
@@ -39,6 +42,7 @@ public class IndexReplacerTest {
 
     }
 
+
     @Test
     public void realtest() {
         String input = realExampleInput();
@@ -52,6 +56,7 @@ public class IndexReplacerTest {
 
     }
 
+
     @Test
     public void easyWay() {
         String output = IndexReplacer.deleteComments(realExampleOutput());
@@ -59,11 +64,21 @@ public class IndexReplacerTest {
 
     }
 
+
     @Test
     public void easyWayFromFile() throws IOException {
         String eW = IndexReplacer.easyWay(realExampleInput(), false);
         String eWFF = IndexReplacer.easyWayFromFile("Tests/ReplacedFile.txt", false);
-        assertEquals(eW+"\n", eWFF);
+        assertEquals(eW + "\n", eWFF);
+    }
+
+
+    @Test
+    public void rightWrite() throws IOException {
+        IndexReplacer.easyWay(realExampleInput(), "Tests\\ResultOfWriting.txt", false);
+
+        assertEquals(IndexReplacer.easyWay(realExampleInput(), false),
+                IndexReplacer.parseFromFile("Tests\\ResultOfWriting.txt"));
     }
 
     private String realExampleInput() {
@@ -161,6 +176,7 @@ public class IndexReplacerTest {
                 "Z0S\n" +
                 "var_delete_var";
     }
+
 
     private String realExampleOutput() {
         return "\n" +
@@ -286,7 +302,6 @@ public class IndexReplacerTest {
                 "E45S[goto+1,БЕЗУСЛОВНО]\n" +
                 "Z0S\n";
     }
-
 
 
 }

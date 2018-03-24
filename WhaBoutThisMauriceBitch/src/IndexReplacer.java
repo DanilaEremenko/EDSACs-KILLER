@@ -18,6 +18,7 @@ public class IndexReplacer {
 
     }
 
+
     public static void easyWay(String edsacCode, String outputFile, boolean withComments) throws IOException {
         String result = edsacCode;
         HashMap<String, Integer> alphabet = alphabetMake(result);
@@ -28,16 +29,21 @@ public class IndexReplacer {
 
     }
 
+
     public static String easyWayFromFile(String inputFile, boolean withComments) throws IOException {
         return easyWay(parseFromFile(inputFile), withComments);
     }
 
 
-    public static void easyWayFromFile(String inputFile, String outputFile, boolean withComments) throws IOException {
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(outputFile));
-        bufferedWriter.write(easyWayFromFile(inputFile, withComments));
-        bufferedWriter.close();
-
+    public static void easyWayFromFile(String inputFile, String outputFile, boolean withComments) {
+        BufferedWriter bufferedWriter = null;
+        try {
+            bufferedWriter = new BufferedWriter(new FileWriter(outputFile));
+            bufferedWriter.write(easyWayFromFile(inputFile, withComments));
+            bufferedWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -85,14 +91,15 @@ public class IndexReplacer {
     }
 
 
-    private static void writeToFile(String URL, String text) throws IOException {
+    public static void writeToFile(String URL, String text) throws IOException {
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(URL));
         bufferedWriter.write(text);
-
+        bufferedWriter.flush();
+        bufferedWriter.close();
     }
 
 
-    private static String parseFromFile(String URL) throws IOException {
+    public static String parseFromFile(String URL) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new FileReader(URL));
         String edsacCode = "";
         int c;
