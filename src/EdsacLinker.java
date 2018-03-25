@@ -1,14 +1,20 @@
-/*Переменная хранится в комментариях в формате var_ИМЯ_var
- * Место, где ее необходимо заменить в комментариях в формате <ИМЯ>*/
+/*Ссылка на строчку хранится в комментариях в формате startOfLink_*ИМЯ*_endOfLink
+ * Место, где ее необходимо заменить на номер строчки в формате <*ИМЯ*>         */
 
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 
 public class EdsacLinker {
+    private String startOfLink;
+    private String endOfLink;
 
+    EdsacLinker(String startOfLink, String endOfLink) {
+        this.startOfLink = startOfLink;
+        this.endOfLink = endOfLink;
+    }
 
-    public static String easyWay(String edsacCode, boolean withComments) {
+    public String easyWay(String edsacCode, boolean withComments) {
         String result = edsacCode;
         HashMap<String, Integer> alphabet = alphabetMake(result);
         result = replaceIndices(result, alphabet);
@@ -19,7 +25,7 @@ public class EdsacLinker {
     }
 
 
-    public static void easyWay(String edsacCode, String outputFile, boolean withComments) throws IOException {
+    public void easyWay(String edsacCode, String outputFile, boolean withComments) throws IOException {
         String result = edsacCode;
         HashMap<String, Integer> alphabet = alphabetMake(result);
         result = replaceIndices(result, alphabet);
@@ -30,32 +36,32 @@ public class EdsacLinker {
     }
 
 
-    public static String easyWayFromFile(String inputFile, boolean withComments) {
+    public String easyWayFromFile(String inputFile, boolean withComments) {
         return easyWay(parseFromFile(inputFile), withComments);
     }
 
 
-    public static void easyWayFromFile(String inputFile, String outputFile, boolean withComments) {
+    public void easyWayFromFile(String inputFile, String outputFile, boolean withComments) {
         writeToFile(outputFile, easyWayFromFile(inputFile, withComments));
     }
 
 
-    public static HashMap<String, Integer> alphabetMake(String edsacCode) {
+    public HashMap<String, Integer> alphabetMake(String edsacCode) {
 
         HashMap<String, Integer> alphabet = new HashMap<>();
         String splitResult[] = edsacCode.split("\n");
 
         for (int i = 0; i < splitResult.length; i++)
-            if (splitResult[i].contains("var_"))
+            if (splitResult[i].contains(startOfLink))
                 alphabet.put("<" + splitResult[i].
-                        substring(splitResult[i].indexOf("var_") + 4, splitResult[i].indexOf("_var")) + ">", i + 31);
+                        substring(splitResult[i].indexOf(startOfLink) + 4, splitResult[i].indexOf(endOfLink)) + ">", i + 31);
 
 
         return alphabet;
     }
 
 
-    public static String replaceIndices(String edsacCode, HashMap<String, Integer> alphabet) {
+    public String replaceIndices(String edsacCode, HashMap<String, Integer> alphabet) {
         String result = edsacCode;
 
         for (Map.Entry<String, Integer> entry : alphabet.entrySet())
@@ -67,7 +73,7 @@ public class EdsacLinker {
     }
 
 
-    public static String deleteComments(String edsacCode) {
+    public String deleteComments(String edsacCode) {
         String splitedCode[] = edsacCode.split("\n");
         for (int i = 0; i < splitedCode.length; i++) {
             if (splitedCode[i].length() != 0 && splitedCode[i].contains("["))
@@ -84,7 +90,7 @@ public class EdsacLinker {
     }
 
 
-    public static void writeToFile(String URL, String text) {
+    public void writeToFile(String URL, String text) {
 
         try {
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(URL));
@@ -97,7 +103,7 @@ public class EdsacLinker {
     }
 
 
-    public static String parseFromFile(String URL) {
+    public String parseFromFile(String URL) {
 
         String edsacCode = "";
         try {

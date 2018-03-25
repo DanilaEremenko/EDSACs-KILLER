@@ -28,7 +28,7 @@
 
 
 
-T138S[var_startSignRec_var,ОПРЕДЕЛЯЕМ ЗНАК--------------------------------------]
+﻿T138S[var_startSignRec_var,ОПРЕДЕЛЯЕМ ЗНАК--------------------------------------]
 A92S[defDigit]
 E35S[void sign is plus]
 G39S[void sign is minus]
@@ -134,4 +134,4 @@ G61S[проверка индекса массива]
 S90S[ONE]
 T95S[index]
 E56S[ВОЗВРАТ В СТРОЧКУ ВЫЗОВА+2,                       }]
-Z0S
+Z0S

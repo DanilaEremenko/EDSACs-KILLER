@@ -6,7 +6,7 @@ import java.util.HashMap;
 import static org.junit.Assert.*;
 
 public class EdsacLinkerTest {
-
+    EdsacLinker edsacLinker=new EdsacLinker("var_","_var");
 
     @Test
     public void alphabetMake() {
@@ -16,7 +16,7 @@ public class EdsacLinkerTest {
 
         String input = "skdksdkds var_a_var\n" +
                 "adsadsads var_b_var";
-        HashMap<String, Integer> alphabet = EdsacLinker.alphabetMake(input);
+        HashMap<String, Integer> alphabet = edsacLinker.alphabetMake(input);
         assertEquals(alphabet, rightAlphabet);
 
     }
@@ -32,13 +32,13 @@ public class EdsacLinkerTest {
     public void deleteComments() {
         String input1 = "asadsad[asdsadsadsadsadsad]";
         String output1 = "asadsad";
-        assertEquals(EdsacLinker.deleteComments(input1), output1);
+        assertEquals(edsacLinker.deleteComments(input1), output1);
 
         String input2 = "asadsad[asdsadsadsadsadsad]\n\t" +
                 "asadsad[asdsadsadsadsadsad]";
         String output2 = "asadsad\n\t" +
                 "asadsad";
-        assertEquals(EdsacLinker.deleteComments(input2), output2);
+        assertEquals(edsacLinker.deleteComments(input2), output2);
 
     }
 
@@ -47,38 +47,38 @@ public class EdsacLinkerTest {
     public void realtest() {
         String input = realExampleInput();
         String output = realExampleOutput();
-        HashMap<String, Integer> alphabet = EdsacLinker.alphabetMake(input);
+        HashMap<String, Integer> alphabet = edsacLinker.alphabetMake(input);
 
-        input = EdsacLinker.deleteComments(input);
-        output = EdsacLinker.deleteComments(output);
+        input = edsacLinker.deleteComments(input);
+        output = edsacLinker.deleteComments(output);
 
-        assertEquals(output, EdsacLinker.replaceIndices(input, alphabet));
+        assertEquals(output, edsacLinker.replaceIndices(input, alphabet));
 
     }
 
 
     @Test
     public void easyWay() {
-        String output = EdsacLinker.deleteComments(realExampleOutput());
-        assertEquals(output, EdsacLinker.easyWay(realExampleInput(), false));
+        String output = edsacLinker.deleteComments(realExampleOutput());
+        assertEquals(output, edsacLinker.easyWay(realExampleInput(), false));
 
     }
 
 
     @Test
     public void easyWayFromFile() throws IOException {
-        String eW = EdsacLinker.easyWay(realExampleInput(), false);
-        String eWFF = EdsacLinker.easyWayFromFile("Tests/ReplacedFile.txt", false);
+        String eW = edsacLinker.easyWay(realExampleInput(), false);
+        String eWFF = edsacLinker.easyWayFromFile("Tests/ReplacedFile.txt", false);
         assertEquals(eW + "\n", eWFF);
     }
 
 
     @Test
     public void rightWrite() throws IOException {
-        EdsacLinker.easyWay(realExampleInput(), "Tests\\ResultOfWriting.txt", false);
+        edsacLinker.easyWay(realExampleInput(), "Tests\\ResultOfWriting.txt", false);
 
-        assertEquals(EdsacLinker.easyWay(realExampleInput(), false),
-                EdsacLinker.parseFromFile("Tests\\ResultOfWriting.txt"));
+        assertEquals(edsacLinker.easyWay(realExampleInput(), false),
+                edsacLinker.parseFromFile("Tests\\ResultOfWriting.txt"));
     }
 
     private String realExampleInput() {
