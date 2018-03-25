@@ -5,7 +5,7 @@ import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 
-public class IndexReplacer {
+public class EdsacLinker {
 
 
     public static String easyWay(String edsacCode, boolean withComments) {
