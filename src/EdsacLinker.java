@@ -51,11 +51,12 @@ public class EdsacLinker {
         HashMap<String, Integer> alphabet = new HashMap<>();
         String splitResult[] = edsacCode.split("\n");
 
-        for (int i = 0; i < splitResult.length; i++)
+        for (int i = 0; i < splitResult.length; i++) {
+            //Убираем строчки в которых написаны только комментарии
             if (splitResult[i].contains(startOfLink))
                 alphabet.put("<" + splitResult[i].
-                        substring(splitResult[i].indexOf(startOfLink) + 4, splitResult[i].indexOf(endOfLink)) + ">", i + 31);
-
+                        substring(splitResult[i].indexOf(startOfLink) + startOfLink.length(), splitResult[i].indexOf(endOfLink)) + ">", i + 31);
+        }
 
         return alphabet;
     }
@@ -63,10 +64,9 @@ public class EdsacLinker {
 
     public String replaceIndices(String edsacCode, HashMap<String, Integer> alphabet) {
         String result = edsacCode;
-
         for (Map.Entry<String, Integer> entry : alphabet.entrySet())
             result = result.replace(entry.getKey(), "" + entry.getValue());
-        result = result.replace("\nvar_delete_var", "");
+        result = result.replace("\n"+startOfLink+"delete"+endOfLink,"");
         result = "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n" + result;
 
         return result;
