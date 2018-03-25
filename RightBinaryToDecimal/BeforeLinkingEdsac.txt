@@ -1,0 +1,73 @@
+T<delete>S[--------------------------------СОХРАНЯЕМ ВТОРОЕ СЛАГАЕМОЕ]
+A<defDigit>S
+G<void minusOneControl>S
+T<secondDecimalPart>S
+T<delete>S[link_back0_link,-------------------CДВИГАЕМ ИСХОДНОЕ ЧИСЛО НА 2 БИТА ВЛЕВО]
+A<firstIntegerPart>S[firstIntegerPart,--------------------ЦЕЛАЯ ЧАСТЬ]
+L0L
+T<firstIntegerPart>S[firstIntegerPart]
+A<defDigit>S[defDigit,----------------------------------ДРОБНАЯ ЧАСТЬ]
+T<firstDecimalPart>S[firstDecimalPart]
+A<firstDecimalPart>S[firstDecimalPart]
+L0L
+G<void addOneToFirstIntegerPart1>S
+T<delete>S[link_back1_link,delete]
+A<firstIntegerPart>S[firstIntegerPart,--------------------ЦЕЛАЯ ЧАСТЬ]
+L0L
+T<firstIntegerPart>S[firstIntegerPart]
+H<SIGN_REVERSER>S[SIGN_REVERSER,------------------------ДРОБНАЯ ЧАСТЬ]
+V<firstDecimalPart>S
+L0L
+G<void addOneToFirstIntegerPart2>S
+T<delete>S[link_back2_link,delete]S
+H<SIGN_REVERSER>S
+V<firstDecimalPart>S
+T<firstDecimalPart>S
+Z0S[----------------------------КОНСТАНТЫ----------------------------]
+P0L[link_ONE_link]
+P1S[link_TWO_link]
+P32767L[link_SIGN_REVERSER_link]
+Z0S[----------------------------ПЕРЕМЕННЫЕ---------------------------]
+01011000000000000S[link_defDigit_link]
+01011000000000000S[link_defDigitCopy_link]
+P0S[link_firstIntegerPart_link]
+P0S[link_firstDecimalPart_link]
+P0S[link_secondIntegerPart_link]
+P0S[link_secondDecimalPart_link]
+P0S[link_FillRazrDigit_link]
+Z0S[----------------------------СОБИРАЮЩИЙСЯ МАССИВ------------------]
+P0S[link_sign_link]
+P0S[link_coma_link]
+P0S[link_firstRazr_link]
+P0S[2 разряд]
+P0S[3 разряд]
+P0S[4 разряд]
+P0S[5 разряд]
+P0S[6 разряд]
+P0S[7 разряд]
+P0S[8 разряд]
+P0S[9 разряд]
+P0S[10 разряд]
+P0S[11 разряд]
+P0S[12 разряд]
+P0S[13 разряд]
+P0S[14 разряд]
+P0S[15 разряд]
+P0S[16 разряд]
+Z0S[--------------------------------МЕТОДЫ---------------------------]
+T<delete>S[link_void minusOneControl_link----------------------------]
+A<ONE>S
+T<sign>
+E<back0>S[exit]
+T<delete>S[link_void addOneToFirstIntegerPart1_link------------------]
+A<firstIntegerPart>S
+A<ONE>S
+T<firstIntegerPart>
+E<back1>S[back1]
+T<delete>S[link_void addOneToFirstIntegerPart2_link------------------]
+A<firstIntegerPart>S
+A<ONE>S
+T<firstIntegerPart>
+E<back2>S[back2]
+Z0S[link_exit_link,-----------------КОНЕЦ РАБОТЫ---------------------]
+link_delete_link
