@@ -1,0 +1,173 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+T174S[link_start_link]
+Z0S[-------------------------------------------------------СОХРАНЯЕМ ВТОРОЕ СЛАГАЕМОЕ]
+A122S[defDigit]
+G149S[void minusOneControl]
+T126S[secondDecimalPart]
+Z0S[------------------------------------------CДВИГАЕМ ИСХОДНОЕ ЧИСЛО НА 2 БИТА ВЛЕВО]
+T174S
+A125S[firstIntegerPart,--------------------ЦЕЛАЯ ЧАСТЬ]
+L0L
+T125S[firstIntegerPart]
+A122S[defDigit,----------------------------------ДРОБНАЯ ЧАСТЬ]
+T124S[firstDecimalPart]
+A124S[firstDecimalPart]
+L0L
+U124S[defDigit]
+G153S[void addOneToFirstIntegerPart1]
+T174S[link_back1_link]
+H120S[SIGN_REVERSER]
+C124S[firstDecimalPart]
+Z0S[-------------------------------------------------ВТОРОЙ СДВИГ]
+T174S[delete]
+A125S[firstIntegerPart,--------------------ЦЕЛАЯ ЧАСТЬ]
+L0L
+T125S[firstIntegerPart]
+H120S[SIGN_REVERSER,------------------------ДРОБНАЯ ЧАСТЬ]
+C124S[firstDecimalPart]
+L0L
+U124S[defDigit]
+G158S[void addOneToFirstIntegerPart2]
+T174S[link_back2_link,delete]
+Z0S[----------------------------------------------------КОНТРОЛЬ ЗНАКА В ПЕРЕПОЛНЕНИИ]
+H120S[SIGN_REVERSER]
+C124S[secondDecimalPart]
+T124S[secondDecimalPart]
+Z0S[-----------------------------------------------------------СЛОЖЕНИЕ ДРОБНОЙ ЧАСТИ]
+T174S[delete]
+A124S[firstDecimalPart]
+A126S[secondDecimalPart]
+U124S[firstDecimalPart]
+U122S[defDigit,для следующего цикла]
+G163S
+T174S[link_back3_link,delete]
+Z0S[----------------------------------------------------КОНТРОЛЬ ЗНАКА В ПЕРЕПОЛНЕНИИ]
+H120S[SIGN_REVERSER]
+C124S[firstDecimalPart]
+U124S[firstDecimalPart]
+T122S[defDigit]
+Z0S[--------------------------------------------ПОЛУЧЕНИЕ ТЕКУЩУЕГО РАЗРЯДА ДО СДВИГА]
+A125S[firstIntegerPart]
+A127S[secondIntegerPart]
+T125S[firstIntegerPart]
+Z0S[-------------------------------------------------------ИТОГОВЫЙ СДВИГ ЦЕЛОЙ ЧАСТИ]
+A125S[firstIntegerPart]
+L0L
+T125S[firstIntegerPart]
+Z0S[-------------------------------------------------------ИТОГОВЫЙ СДВИГ ДРОБНОЙ ЧАСТИ]
+A124S[firstDecimalPart]
+L0L
+U124S
+G168S
+H120S[link_back4_link,SIGN_REVERSER]
+C124S[firstDecimalPart]
+U124S[firstDecimalPart]
+T122S[defDigit]
+Z0S[-------------------------------------------------------ИТОГОВОЕ ЧИСЛО]
+A125S[firstIntegerPart]
+T132S[link_modifInstr_link,firstRazr]
+Z0S[--------------------------------------------------------------ОБНУЛЯЕМ ПЕРЕМЕННЫЕ]
+A117S[ZERO]
+U125S[firstIntegerPart]
+U127S[secondIntegerPart]
+U124S[firstDecimalPart]
+U126S[secondDecimalPart]
+Z0S[---------------------------------------------------ПРОВЕРКА НЕ ЗАКОНЧИЛСЯ ЛИ ЦИКЛ]
+T174S[delete]
+A128S[fillRazrDigit]
+S118S[ONE]
+U128S[fillRazrDigit]
+G173S[exit]
+Z0S[---------------------------------------МОДИФИКАЦИЯ ИНСТРУКЦИЙ ЗАПОЛНЯЮЩИХ РАЗРЯДЫ]
+T174S[delete]
+A119S[TWO]
+A97S[modifInstr]
+T97S[modifInstr]
+E31S
+Z0S[----------------------------КОНСТАНТЫ--------------------------------------------]
+P0S[link_ZERO_link]
+P0L[link_ONE_link]
+P1S[link_TWO_link]
+P32767L[link_SIGN_REVERSER_link]
+Z0S[----------------------------ПЕРЕМЕННЫЕ-------------------------------------------]
+Y0S[link_defDigit_link = 0.375]
+Y0S[link_defDigitCopy_link = 0.375]
+P0S[link_firstDecimalPart_link]
+P0S[link_firstIntegerPart_link]
+P0S[link_secondDecimalPart_link]
+P0S[link_secondIntegerPart_link]
+P8S[link_fillRazrDigit_link]
+Z0S[----------------------------СОБИРАЮЩИЙСЯ МАССИВ----------------------------------]
+P0S[link_sign_link]
+P0S[link_coma_link]
+P0S[link_firstRazr_link]
+P0S[2 разряд]
+P0S[3 разряд]
+P0S[4 разряд]
+P0S[5 разряд]
+P0S[6 разряд]
+P0S[7 разряд]
+P0S[8 разряд]
+P0S[9 разряд]
+P0S[10 разряд]
+P0S[11 разряд]
+P0S[12 разряд]
+P0S[13 разряд]
+P0S[14 разряд]
+P0S[15 разряд]
+P0S[16 разряд]
+Z0S[--------------------------------МЕТОДЫ-------------------------------------------]
+T174S[link_void minusOneControl_link----------------------------]
+A118S[ONE]
+T130S[sign]
+E173S[exit]
+T174S[link_void addOneToFirstIntegerPart1_link------------------]
+A125S[firstIntegerPart]
+A118S[ONE]
+T125S[firstIntegerPart]
+E47S[back1]
+T174S[link_void addOneToFirstIntegerPart2_link------------------]
+A125S[firstIntegerPart]
+A118S[ONE]
+T125S[firstIntegerPart]
+E60S[back2]
+T174S[link_void controlDecimalOverFlow_link---------------------]
+A125S[firstIntegerPart]
+A118S[ONE]
+T125S[firstIntegerPart]
+E72S[back3]
+T174S[link_void controlFinalDecimalOverFlow_link------------------]
+A125S[firstIntegerPart]
+A118S[ONE]
+T125S[firstIntegerPart]
+E91S[back4]
+Z0S[link_exit_link,-----------------КОНЕЦ РАБОТЫ-------------------------------------]
