@@ -1,0 +1,10 @@
+T<delete>S[link_start_link]
+Z0S
+H<SIGN_REVERSER>S
+C<digit>S
+T<digit>S
+E<start>S
+P32767L[link_SIGN_REVERSER_link]
+P2323S[link_digit_link]
+Z0S
+link_delete_link
