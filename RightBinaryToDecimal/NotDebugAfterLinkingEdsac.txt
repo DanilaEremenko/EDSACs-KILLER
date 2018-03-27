@@ -28,172 +28,166 @@
 
 
 
-﻿T200S[link_start_link]
-Z0S[-------------------------------------------------------СОХРАНЯЕМ ВТОРОЕ СЛАГАЕМОЕ]
-T200S[ДЛЯ КРАСОТЫ БОЧКИ]
-T200S[ДЛЯ КРАСОТЫ БОЧКИ]
-T200S[ДЛЯ КРАСОТЫ БОЧКИ]
-T200S[ДЛЯ КРАСОТЫ БОЧКИ]
-T200S[ДЛЯ КРАСОТЫ БОЧКИ]
-T200S[ДЛЯ КРАСОТЫ БОЧКИ]
-T200S[ДЛЯ КРАСОТЫ БОЧКИ]
-T200S[ДЛЯ КРАСОТЫ БОЧКИ]
-A128S[defDigit]
-G155S[void minusOneControl]
-U132S[secondDecimalPart]
-T130S[firstDecimalPart]
-U200S[------------------------------------------CДВИГАЕМ ИСХОДНОЕ ЧИСЛО НА 2 БИТА ВЛЕВО]
-A131S[firstIntegerPart,--------------------ЦЕЛАЯ ЧАСТЬ]
-L0L
-T131S[firstIntegerPart]
-A130S[firstDecimalPart,------------------ДРОБНАЯ ЧАСТЬ]
-L0L
-U130S[defDigit]
-G159S[void addOneToFirstIntegerPart1]
-T200S[link_back1_link]
-U200S[----------------------------------------------------КОНТРОЛЬ ЗНАКА В ПЕРЕПОЛНЕНИИ]
-H125S[SIGN_REVERSER]
-C130S[firstDecimalPart]
-T130S[firstDecimalPart]
-U200S[---------------------------------------------------------------------ВТОРОЙ СДВИГ]
-A131S[firstIntegerPart,--------------------ЦЕЛАЯ ЧАСТЬ]
-L0L
-T131S[firstIntegerPart]
-A130S[firstDecimalPart,------------------ДРОБНАЯ ЧАСТЬ]
-L0L
-U130S[defDigit]
-G164S[void addOneToFirstIntegerPart2]
-T200S[link_back2_link,delete]
-U200S[----------------------------------------------------КОНТРОЛЬ ЗНАКА В ПЕРЕПОЛНЕНИИ]
-H125S[SIGN_REVERSER]
-C130S[firstDecimalPart]
-T130S[firstDecimalPart]
-U200S[-----------------------------------------------------------СЛОЖЕНИЕ ДРОБНОЙ ЧАСТИ]
-A130S[firstDecimalPart]
-A132S[secondDecimalPart]
-U130S[firstDecimalPart]
-G169S
-T200S[link_back3_link,delete]
-U200S[----------------------------------------------------КОНТРОЛЬ ЗНАКА В ПЕРЕПОЛНЕНИИ]
-H125S[SIGN_REVERSER]
-C130S[firstDecimalPart]
-T130S[firstDecimalPart]
-U200S[--------------------------------------------ПОЛУЧЕНИЕ ТЕКУЩУЕГО РАЗРЯДА ДО СДВИГА]
-A131S[firstIntegerPart]
-A133S[secondIntegerPart]
-T131S[firstIntegerPart]
-U200S[-------------------------------------------------------ИТОГОВЫЙ СДВИГ ЦЕЛОЙ ЧАСТИ]
-A131S[firstIntegerPart]
-L0L
-T131S[firstIntegerPart]
-U200S[-------------------------------------------------------ИТОГОВЫЙ СДВИГ ДРОБНОЙ ЧАСТИ]
-A130S[firstDecimalPart]
-L0L
-U130S
-G174S
-T200S
-H125S[link_back4_link,SIGN_REVERSER]
-C130S[firstDecimalPart]
-U130S[firstDecimalPart]
-T128S[defDigit]
-U200S[-------------------------------------------------------ТЕКУЩИЙ РАЗРЯД]
-A131S[firstIntegerPart]
-L1024S
-T138S[link_modifInstr_link,firstRazr]
-U200S[--------------------------------------------------------------ОБНУЛЯЕМ ПЕРЕМЕННЫЕ]
-A122S[ZERO]
-U131S[firstIntegerPart]
-U133S[secondIntegerPart]
-U130S[firstDecimalPart]
-U132S[secondDecimalPart]
-T200S[delete]
-U200S[---------------------------------------------------ПРОВЕРКА НЕ ЗАКОНЧИЛСЯ ЛИ ЦИКЛ]
-A134S[fillRazrDigit]
-S123S[ONE]
-U134S[fillRazrDigit]
-G179S[exit]
-T200S[delete]
-U200S[---------------------------------------МОДИФИКАЦИЯ ИНСТРУКЦИЙ ЗАПОЛНЯЮЩИХ РАЗРЯДЫ]
-A124S[TWO]
-A102S[modifInstr]
-T102S[modifInstr]
-E31S
-U200S[----------------------------КОНСТАНТЫ--------------------------------------------]
+T194S
+T194S
+E91S
 P0S[link_ZERO_link]
 P0L[link_ONE_link]
 P1S[link_TWO_link]
 P32767L[link_SIGN_REVERSER_link]
-U200S[----------------------------ПЕРЕМЕННЫЕ-------------------------------------------]
+U194S
 #0S[link_FIGURE_SHIFT_link]
-Y0S[link_defDigit_link = 0.375]
-Y0S[link_defDigitCopy_link = 0.375]
-P0S[link_firstDecimalPart_link]
+Y0S[link_defDigit_link]
+Y0S[link_defDigitCopy_link]
+P0S[link_firstFractionPart_link]
 P0S[link_firstIntegerPart_link]
-P0S[link_secondDecimalPart_link]
+P0S[link_secondFractionPart_link]
 P0S[link_secondIntegerPart_link]
 P8S[link_fillRazrDigit_link]
-U200S[----------------------------СОБИРАЮЩИЙСЯ МАССИВ----------------------------------]
+U194S
 P0S[link_sign_link]
-M0S[link_coma_link]
-P0S[link_firstRazr_link]
-P0S[link_2_link]
-P0S[link_3_link]
-P0S[link_4_link]
-P0S[link_5_link]
-P0S[link_6_link]
-P0S[link_7_link]
-P0S[link_8_link]
-P0S[link_9_link]
-P0S[link_10_link]
-P0S[link_11_link]
-P0S[link_12_link]
-P0S[link_13_link]
-P0S[link_14_link]
-P0S[link_15_link]
-P0S[link_16_link]
-U200S[--------------------------------МЕТОДЫ-------------------------------------------]
-T200S[link_void minusOneControl_link----------------------------]
-A123S[ONE]
-T136S[sign]
-E179S[exit]
-T200S[link_void addOneToFirstIntegerPart1_link------------------]
-A131S[firstIntegerPart]
-A123S[ONE]
-T131S[firstIntegerPart]
-E53S[back1]
-T200S[link_void addOneToFirstIntegerPart2_link------------------]
-A131S[firstIntegerPart]
-A123S[ONE]
-T131S[firstIntegerPart]
-E66S[back2]
-T200S[link_void controlDecimalOverFlow_link---------------------]
-A131S[firstIntegerPart]
-A123S[ONE]
-T131S[firstIntegerPart]
-E76S[back3]
-T200S[link_void controlFinalDecimalOverFlow_link----------------]
-A131S[firstIntegerPart]
-A123S[ONE]
-T131S[firstIntegerPart]
-E95S[back4]
-T200S[link_exit_link---------------------------КОНЕЦ РАБОТЫ---------------------]
-O127S
-O136S[sign]
-O137S[coma]
-O138S[firstRazr]
-O139S[2]
-O140S[3]
-O141S[4]
-O142S[5]
-O143S[6]
-O144S[7]
-O145S[8]
-O146S[9]
-O147S[10]
-O148S[11]
-O149S[12]
-O150S[13]
-O151S[14]
-O152S[15]
-O153S[16]
-Z0S
+M0S[link_dot_link]
+P0S[link_1 Decimal_link]
+P0S[link_2 Decimal_link]
+P0S[link_3 Decimal_link]
+P0S[link_4 Decimal_link]
+P0S[link_5 Decimal_link]
+P0S[link_6 Decimal_link]
+P0S[link_7 Decimal_link]
+P0S[link_8 Decimal_link]
+P0S[link_9 Decimal_link]
+P0S[link_10 Decimal_link]
+P0S[link_11 Decimal_link]
+P0S[link_12 Decimal_link]
+P0S[link_13 Decimal_link]
+P0S[link_14 Decimal_link]
+P0S[link_15 Decimal_link]
+P0S[link_16 Decimal_link]
+U194S
+T194S[link_void minusOneControl_link----------------------------]
+A35S
+T48S
+E173S
+T194S[link_void addOneToFirstIntegerPart1_link------------------]
+A43S
+A35S
+T43S
+E105S
+T194S[link_void addOneToFirstIntegerPart2_link------------------]
+A43S
+A35S
+T43S
+E118S
+T194S[link_void controlDecimalOverFlow_link---------------------]
+A43S
+A35S
+T43S
+E128S
+T194S[link_void controlFinalDecimalOverFlow_link----------------]
+A43S
+A35S
+T43S
+E147S
+T194S[link_start_link]
+Z0S[--------------------------------------------------------------СОХРАНЯЕМ ВТОРОЕ СЛАГАЕМОЕ]
+A40S
+G67S
+U44S
+T42S
+U194S
+A43S
+L0L
+T43S
+A42S
+L0L
+U42S
+G71S
+T194S[link_back1_link]
+U194S
+H37S
+C42S
+T42S
+U194S
+A43S
+L0L
+T43S
+A42S
+L0L
+U42S
+G76S
+T194S[link_back2_link,delete]
+U194S
+H37S
+C42S
+T42S
+U194S
+A42S
+A44S
+U42S
+G81S
+T194S[link_back3_link,delete]
+U194S
+H37S
+C42S
+T42S
+U194S
+A43S
+A45S
+T43S
+U194S
+A43S
+L0L
+T43S
+U194S
+A42S
+L0L
+U42S
+G86S
+T194S
+H37S[link_back4_link,SIGN_REVERSER]
+C42S
+U42S
+T40S
+U194S
+A43S
+L1024S
+T50S[link_modifInstr_link,1 Decimal]
+U194S
+A34S
+U43S
+U45S
+U42S
+U44S
+T194S
+U194S
+A46S
+S35S
+U46S
+G173S
+T194S
+U194S
+A36S
+A154S
+T154S
+E91S
+T194S[link_exit_link-----------------------------ВЫВОД ПОЛУЧЕННОГО ЧИСЛА НА ТЕЛЕПРИНТЕР]
+O39S
+O48S
+O49S
+O50S
+O51S
+O52S
+O53S
+O54S
+O55S
+O56S
+O57S
+O58S
+O59S
+O60S
+O61S
+O62S
+O63S
+O64S
+O65S
+Z0S

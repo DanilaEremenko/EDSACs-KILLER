@@ -7,6 +7,9 @@ public class Main {
 
     public static void main(String[] args) {
         EdsacLinker edsacLinker = new EdsacLinker("link_", "_link");
+        edsacLinker.deleteUnusedComments(input,input);
         edsacLinker.easyWayFromFile(input, output, withComments);
+
+
     }
 }

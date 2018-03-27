@@ -25,7 +25,7 @@ public class EdsacLinker {
     }
 
 
-    public void easyWay(String edsacCode, String outputFile, boolean withComments) throws IOException {
+    public void easyWay(String edsacCode, String outputFile, boolean withComments) {
         String result = edsacCode;
         HashMap<String, Integer> alphabet = alphabetMake(result);
         result = replaceIndices(result, alphabet);
@@ -53,7 +53,7 @@ public class EdsacLinker {
 
         for (int i = 0; i < splitResult.length; i++) {
             //Убираем строчки в которых написаны только комментарии
-            if (splitResult[i].contains(startOfLink))
+            if (splitResult[i].contains(startOfLink) && splitResult[i].contains(endOfLink))
                 alphabet.put("<" + splitResult[i].
                         substring(splitResult[i].indexOf(startOfLink) + startOfLink.length(), splitResult[i].indexOf(endOfLink)) + ">", i + 31);
         }
@@ -64,9 +64,18 @@ public class EdsacLinker {
 
     public String replaceIndices(String edsacCode, HashMap<String, Integer> alphabet) {
         String result = edsacCode;
+        String splitResult[] = edsacCode.split("\n");
+        //Дописываем комментарий с адресом
+        for (int i = 0; i < splitResult.length; i++) {
+            if (splitResult[i].contains("<") && splitResult[i].contains(">")) {
+                splitResult[i] += "[" + splitResult[i].substring(splitResult[i].indexOf("<"),
+                        splitResult[i].indexOf(">")) + "]";
+            }
+        }
+
         for (Map.Entry<String, Integer> entry : alphabet.entrySet())
             result = result.replace(entry.getKey(), "" + entry.getValue());
-        result = result.replace("\n"+startOfLink+"delete"+endOfLink,"");
+        result = result.replace("\n" + startOfLink + "delete" + endOfLink, "");
         result = "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n" + result;
 
         return result;
@@ -118,5 +127,28 @@ public class EdsacLinker {
         return edsacCode;
     }
 
+
+    public void deleteUnusedComments(String inputFile, String outputFile) {
+        String splitedCode[] = parseFromFile(inputFile).split("\n");
+        for (int i = 0; i < splitedCode.length; i++) {
+            if (splitedCode[i].length() != 0
+                    && splitedCode[i].contains("[")
+                    && !splitedCode[i].contains("Z0S")
+                    && !splitedCode[i].contains(startOfLink)
+                    && !splitedCode[i].contains(endOfLink))
+                splitedCode[i] = splitedCode[i].substring(0, splitedCode[i].indexOf("[")
+                );
+
+        }
+        String result = "";
+        for (int i = 0; i < splitedCode.length; i++)
+            if (i != splitedCode.length - 1)
+                result += splitedCode[i] + "\n";
+            else result += splitedCode[i];
+
+        writeToFile(outputFile, result);
+
+
+    }
 
 }

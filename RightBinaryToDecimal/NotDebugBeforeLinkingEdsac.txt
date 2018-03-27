@@ -1,170 +1,164 @@
-﻿T<delete>S[link_start_link]
-Z0S[-------------------------------------------------------СОХРАНЯЕМ ВТОРОЕ СЛАГАЕМОЕ]
-T<delete>S[ДЛЯ КРАСОТЫ БОЧКИ]
-T<delete>S[ДЛЯ КРАСОТЫ БОЧКИ]
-T<delete>S[ДЛЯ КРАСОТЫ БОЧКИ]
-T<delete>S[ДЛЯ КРАСОТЫ БОЧКИ]
-T<delete>S[ДЛЯ КРАСОТЫ БОЧКИ]
-T<delete>S[ДЛЯ КРАСОТЫ БОЧКИ]
-T<delete>S[ДЛЯ КРАСОТЫ БОЧКИ]
-T<delete>S[ДЛЯ КРАСОТЫ БОЧКИ]
-A<defDigit>S[defDigit]
-G<void minusOneControl>S[void minusOneControl]
-U<secondDecimalPart>S[secondDecimalPart]
-T<firstDecimalPart>S[firstDecimalPart]
-U<delete>S[------------------------------------------CДВИГАЕМ ИСХОДНОЕ ЧИСЛО НА 2 БИТА ВЛЕВО]
-A<firstIntegerPart>S[firstIntegerPart,--------------------ЦЕЛАЯ ЧАСТЬ]
-L0L
-T<firstIntegerPart>S[firstIntegerPart]
-A<firstDecimalPart>S[firstDecimalPart,------------------ДРОБНАЯ ЧАСТЬ]
-L0L
-U<firstDecimalPart>S[defDigit]
-G<void addOneToFirstIntegerPart1>S[void addOneToFirstIntegerPart1]
-T<delete>S[link_back1_link]
-U<delete>S[----------------------------------------------------КОНТРОЛЬ ЗНАКА В ПЕРЕПОЛНЕНИИ]
-H<SIGN_REVERSER>S[SIGN_REVERSER]
-C<firstDecimalPart>S[firstDecimalPart]
-T<firstDecimalPart>S[firstDecimalPart]
-U<delete>S[---------------------------------------------------------------------ВТОРОЙ СДВИГ]
-A<firstIntegerPart>S[firstIntegerPart,--------------------ЦЕЛАЯ ЧАСТЬ]
-L0L
-T<firstIntegerPart>S[firstIntegerPart]
-A<firstDecimalPart>S[firstDecimalPart,------------------ДРОБНАЯ ЧАСТЬ]
-L0L
-U<firstDecimalPart>S[defDigit]
-G<void addOneToFirstIntegerPart2>S[void addOneToFirstIntegerPart2]
-T<delete>S[link_back2_link,delete]
-U<delete>S[----------------------------------------------------КОНТРОЛЬ ЗНАКА В ПЕРЕПОЛНЕНИИ]
-H<SIGN_REVERSER>S[SIGN_REVERSER]
-C<firstDecimalPart>S[firstDecimalPart]
-T<firstDecimalPart>S[firstDecimalPart]
-U<delete>S[-----------------------------------------------------------СЛОЖЕНИЕ ДРОБНОЙ ЧАСТИ]
-A<firstDecimalPart>S[firstDecimalPart]
-A<secondDecimalPart>S[secondDecimalPart]
-U<firstDecimalPart>S[firstDecimalPart]
-G<void controlDecimalOverFlow>S
-T<delete>S[link_back3_link,delete]
-U<delete>S[----------------------------------------------------КОНТРОЛЬ ЗНАКА В ПЕРЕПОЛНЕНИИ]
-H<SIGN_REVERSER>S[SIGN_REVERSER]
-C<firstDecimalPart>S[firstDecimalPart]
-T<firstDecimalPart>S[firstDecimalPart]
-U<delete>S[--------------------------------------------ПОЛУЧЕНИЕ ТЕКУЩУЕГО РАЗРЯДА ДО СДВИГА]
-A<firstIntegerPart>S[firstIntegerPart]
-A<secondIntegerPart>S[secondIntegerPart]
-T<firstIntegerPart>S[firstIntegerPart]
-U<delete>S[-------------------------------------------------------ИТОГОВЫЙ СДВИГ ЦЕЛОЙ ЧАСТИ]
-A<firstIntegerPart>S[firstIntegerPart]
-L0L
-T<firstIntegerPart>S[firstIntegerPart]
-U<delete>S[-------------------------------------------------------ИТОГОВЫЙ СДВИГ ДРОБНОЙ ЧАСТИ]
-A<firstDecimalPart>S[firstDecimalPart]
-L0L
-U<firstDecimalPart>S
-G<void controlFinalDecimalOverFlow>S
+﻿T<delete>S
 T<delete>S
-H<SIGN_REVERSER>S[link_back4_link,SIGN_REVERSER]
-C<firstDecimalPart>S[firstDecimalPart]
-U<firstDecimalPart>S[firstDecimalPart]
-T<defDigit>S[defDigit]
-U<delete>S[-------------------------------------------------------ТЕКУЩИЙ РАЗРЯД]
-A<firstIntegerPart>S[firstIntegerPart]
-L1024S
-T<firstRazr>S[link_modifInstr_link,firstRazr]
-U<delete>S[--------------------------------------------------------------ОБНУЛЯЕМ ПЕРЕМЕННЫЕ]
-A<ZERO>S[ZERO]
-U<firstIntegerPart>S[firstIntegerPart]
-U<secondIntegerPart>S[secondIntegerPart]
-U<firstDecimalPart>S[firstDecimalPart]
-U<secondDecimalPart>S[secondDecimalPart]
-T<delete>S[delete]
-U<delete>S[---------------------------------------------------ПРОВЕРКА НЕ ЗАКОНЧИЛСЯ ЛИ ЦИКЛ]
-A<fillRazrDigit>S[fillRazrDigit]
-S<ONE>S[ONE]
-U<fillRazrDigit>S[fillRazrDigit]
-G<exit>S[exit]
-T<delete>S[delete]
-U<delete>S[---------------------------------------МОДИФИКАЦИЯ ИНСТРУКЦИЙ ЗАПОЛНЯЮЩИХ РАЗРЯДЫ]
-A<TWO>S[TWO]
-A<modifInstr>S[modifInstr]
-T<modifInstr>S[modifInstr]
 E<start>S
-U<delete>S[----------------------------КОНСТАНТЫ--------------------------------------------]
 P0S[link_ZERO_link]
 P0L[link_ONE_link]
 P1S[link_TWO_link]
 P32767L[link_SIGN_REVERSER_link]
-U<delete>S[----------------------------ПЕРЕМЕННЫЕ-------------------------------------------]
+U<delete>S
 #0S[link_FIGURE_SHIFT_link]
-Y0S[link_defDigit_link = 0.375]
-Y0S[link_defDigitCopy_link = 0.375]
-P0S[link_firstDecimalPart_link]
+Y0S[link_defDigit_link]
+Y0S[link_defDigitCopy_link]
+P0S[link_firstFractionPart_link]
 P0S[link_firstIntegerPart_link]
-P0S[link_secondDecimalPart_link]
+P0S[link_secondFractionPart_link]
 P0S[link_secondIntegerPart_link]
 P8S[link_fillRazrDigit_link]
-U<delete>S[----------------------------СОБИРАЮЩИЙСЯ МАССИВ----------------------------------]
+U<delete>S
 P0S[link_sign_link]
-M0S[link_coma_link]
-P0S[link_firstRazr_link]
-P0S[link_2_link]
-P0S[link_3_link]
-P0S[link_4_link]
-P0S[link_5_link]
-P0S[link_6_link]
-P0S[link_7_link]
-P0S[link_8_link]
-P0S[link_9_link]
-P0S[link_10_link]
-P0S[link_11_link]
-P0S[link_12_link]
-P0S[link_13_link]
-P0S[link_14_link]
-P0S[link_15_link]
-P0S[link_16_link]
-U<delete>S[--------------------------------МЕТОДЫ-------------------------------------------]
+M0S[link_dot_link]
+P0S[link_1 Decimal_link]
+P0S[link_2 Decimal_link]
+P0S[link_3 Decimal_link]
+P0S[link_4 Decimal_link]
+P0S[link_5 Decimal_link]
+P0S[link_6 Decimal_link]
+P0S[link_7 Decimal_link]
+P0S[link_8 Decimal_link]
+P0S[link_9 Decimal_link]
+P0S[link_10 Decimal_link]
+P0S[link_11 Decimal_link]
+P0S[link_12 Decimal_link]
+P0S[link_13 Decimal_link]
+P0S[link_14 Decimal_link]
+P0S[link_15 Decimal_link]
+P0S[link_16 Decimal_link]
+U<delete>S
 T<delete>S[link_void minusOneControl_link----------------------------]
-A<ONE>S[ONE]
-T<sign>S[sign]
-E<exit>S[exit]
+A<ONE>S
+T<sign>S
+E<exit>S
 T<delete>S[link_void addOneToFirstIntegerPart1_link------------------]
-A<firstIntegerPart>S[firstIntegerPart]
-A<ONE>S[ONE]
-T<firstIntegerPart>S[firstIntegerPart]
-E<back1>S[back1]
+A<firstIntegerPart>S
+A<ONE>S
+T<firstIntegerPart>S
+E<back1>S
 T<delete>S[link_void addOneToFirstIntegerPart2_link------------------]
-A<firstIntegerPart>S[firstIntegerPart]
-A<ONE>S[ONE]
-T<firstIntegerPart>S[firstIntegerPart]
-E<back2>S[back2]
+A<firstIntegerPart>S
+A<ONE>S
+T<firstIntegerPart>S
+E<back2>S
 T<delete>S[link_void controlDecimalOverFlow_link---------------------]
-A<firstIntegerPart>S[firstIntegerPart]
-A<ONE>S[ONE]
-T<firstIntegerPart>S[firstIntegerPart]
-E<back3>S[back3]
+A<firstIntegerPart>S
+A<ONE>S
+T<firstIntegerPart>S
+E<back3>S
 T<delete>S[link_void controlFinalDecimalOverFlow_link----------------]
-A<firstIntegerPart>S[firstIntegerPart]
-A<ONE>S[ONE]
-T<firstIntegerPart>S[firstIntegerPart]
-E<back4>S[back4]
-T<delete>S[link_exit_link---------------------------КОНЕЦ РАБОТЫ---------------------]
+A<firstIntegerPart>S
+A<ONE>S
+T<firstIntegerPart>S
+E<back4>S
+T<delete>S[link_start_link]
+Z0S[--------------------------------------------------------------СОХРАНЯЕМ ВТОРОЕ СЛАГАЕМОЕ]
+A<defDigit>S
+G<void minusOneControl>S
+U<secondFractionPart>S
+T<firstFractionPart>S
+U<delete>S
+A<firstIntegerPart>S
+L0L
+T<firstIntegerPart>S
+A<firstFractionPart>S
+L0L
+U<firstFractionPart>S
+G<void addOneToFirstIntegerPart1>S
+T<delete>S[link_back1_link]
+U<delete>S
+H<SIGN_REVERSER>S
+C<firstFractionPart>S
+T<firstFractionPart>S
+U<delete>S
+A<firstIntegerPart>S
+L0L
+T<firstIntegerPart>S
+A<firstFractionPart>S
+L0L
+U<firstFractionPart>S
+G<void addOneToFirstIntegerPart2>S
+T<delete>S[link_back2_link,delete]
+U<delete>S
+H<SIGN_REVERSER>S
+C<firstFractionPart>S
+T<firstFractionPart>S
+U<delete>S
+A<firstFractionPart>S
+A<secondFractionPart>S
+U<firstFractionPart>S
+G<void controlDecimalOverFlow>S
+T<delete>S[link_back3_link,delete]
+U<delete>S
+H<SIGN_REVERSER>S
+C<firstFractionPart>S
+T<firstFractionPart>S
+U<delete>S
+A<firstIntegerPart>S
+A<secondIntegerPart>S
+T<firstIntegerPart>S
+U<delete>S
+A<firstIntegerPart>S
+L0L
+T<firstIntegerPart>S
+U<delete>S
+A<firstFractionPart>S
+L0L
+U<firstFractionPart>S
+G<void controlFinalDecimalOverFlow>S
+T<delete>S
+H<SIGN_REVERSER>S[link_back4_link,SIGN_REVERSER]
+C<firstFractionPart>S
+U<firstFractionPart>S
+T<defDigit>S
+U<delete>S
+A<firstIntegerPart>S
+L1024S
+T<1 Decimal>S[link_modifInstr_link,1 Decimal]
+U<delete>S
+A<ZERO>S
+U<firstIntegerPart>S
+U<secondIntegerPart>S
+U<firstFractionPart>S
+U<secondFractionPart>S
+T<delete>S
+U<delete>S
+A<fillRazrDigit>S
+S<ONE>S
+U<fillRazrDigit>S
+G<exit>S
+T<delete>S
+U<delete>S
+A<TWO>S
+A<modifInstr>S
+T<modifInstr>S
+E<start>S
+T<delete>S[link_exit_link-----------------------------ВЫВОД ПОЛУЧЕННОГО ЧИСЛА НА ТЕЛЕПРИНТЕР]
 O<FIGURE_SHIFT>S
-O<sign>S[sign]
-O<coma>S[coma]
-O<firstRazr>S[firstRazr]
-O<2>S[2]
-O<3>S[3]
-O<4>S[4]
-O<5>S[5]
-O<6>S[6]
-O<7>S[7]
-O<8>S[8]
-O<9>S[9]
-O<10>S[10]
-O<11>S[11]
-O<12>S[12]
-O<13>S[13]
-O<14>S[14]
-O<15>S[15]
-O<16>S[16]
+O<sign>S
+O<dot>S
+O<1 Decimal>S
+O<2 Decimal>S
+O<3 Decimal>S
+O<4 Decimal>S
+O<5 Decimal>S
+O<6 Decimal>S
+O<7 Decimal>S
+O<8 Decimal>S
+O<9 Decimal>S
+O<10 Decimal>S
+O<11 Decimal>S
+O<12 Decimal>S
+O<13 Decimal>S
+O<14 Decimal>S
+O<15 Decimal>S
+O<16 Decimal>S
 Z0S
 link_delete_link
