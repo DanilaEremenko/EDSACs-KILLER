@@ -17,4 +17,4 @@
 7:P4S[link_secondDigit_link]       37:P4S[link_secondDigit_link]                    37:P4S
 8:P0S[link_result_link]            38:P0S[link_result_link]                         38:P0S
 13:Z0S[link_exit_link]             43:Z0S[link_exit_link]                           43:Z0S
-14:link_delete_link                44:
+14:link_delete_link                44:                                              44:
