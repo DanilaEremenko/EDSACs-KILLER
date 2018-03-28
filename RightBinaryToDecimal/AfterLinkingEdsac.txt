@@ -77,7 +77,7 @@ T194S[link_void addOneToFirstIntegerPart2_link------------------]
 A43S
 A35S
 T43S
-E<backFrom_addOneToFirstIntegerPart2>S
+E118S
 T194S[link_void controlDecimalOverFlow_link---------------------]
 A43S
 A35S
@@ -115,7 +115,7 @@ A42S
 L0L
 U42S
 G76S
-T194S[link_addOneToFirstIntegerPart2_link]
+T194S[link_backFrom_addOneToFirstIntegerPart2_link]
 Z0S[-------------------------------------------КОНТРОЛЬ ЗНАКА В ПЕРЕПОЛНЕНИИ]
 H37S
 C42S
