@@ -1,6 +1,5 @@
 import org.junit.Test;
 
-import java.io.IOException;
 import java.util.HashMap;
 
 import static org.junit.Assert.*;
@@ -60,26 +59,27 @@ public class EdsacLinkerTest {
     @Test
     public void easyWay() {
         String output = edsacLinker.deleteComments(realExampleOutput());
-        assertEquals(output, edsacLinker.easyWay(realExampleInput(), false));
+        assertEquals(output, edsacLinker.makeLinking(realExampleInput(), false));
 
     }
 
 
     @Test
-    public void easyWayFromFile() throws IOException {
-        String eW = edsacLinker.easyWay(realExampleInput(), false);
-        String eWFF = edsacLinker.easyWayFromFile("Tests/ReplacedFile.txt", false);
+    public void easyWayFromFile(){
+        String eW = edsacLinker.makeLinking(realExampleInput(), false);
+        String eWFF = edsacLinker.makeLinkingFromFile("Tests/ReplacedFile.txt", false);
         assertEquals(eW + "\n", eWFF);
     }
 
 
     @Test
-    public void rightWrite() throws IOException {
-        edsacLinker.easyWay(realExampleInput(), "Tests\\ResultOfWriting.txt", false);
+    public void rightWrite(){
+        edsacLinker.makeLinking(realExampleInput(), "Tests\\ResultOfWriting.txt", false);
 
-        assertEquals(edsacLinker.easyWay(realExampleInput(), false),
+        assertEquals(edsacLinker.makeLinking(realExampleInput(), false),
                 edsacLinker.parseFromFile("Tests\\ResultOfWriting.txt"));
     }
+
 
     private String realExampleInput() {
         return "T<delete>S[var_start_var]\n" +

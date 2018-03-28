@@ -14,7 +14,7 @@ public class EdsacLinker {
         this.endOfLink = endOfLink;
     }
 
-    public String easyWay(String edsacCode, boolean withComments) {
+    public String makeLinking(String edsacCode, boolean withComments) {
         String result = edsacCode;
         HashMap<String, Integer> alphabet = alphabetMake(result);
         result = replaceIndices(result, alphabet);
@@ -25,7 +25,7 @@ public class EdsacLinker {
     }
 
 
-    public void easyWay(String edsacCode, String outputFile, boolean withComments) {
+    public void makeLinking(String edsacCode, String outputFile, boolean withComments) {
         String result = edsacCode;
         HashMap<String, Integer> alphabet = alphabetMake(result);
         result = replaceIndices(result, alphabet);
@@ -36,13 +36,13 @@ public class EdsacLinker {
     }
 
 
-    public String easyWayFromFile(String inputFile, boolean withComments) {
-        return easyWay(parseFromFile(inputFile), withComments);
+    public String makeLinkingFromFile(String inputFile, boolean withComments) {
+        return makeLinking(parseFromFile(inputFile), withComments);
     }
 
 
-    public void easyWayFromFile(String inputFile, String outputFile, boolean withComments) {
-        writeToFile(outputFile, easyWayFromFile(inputFile, withComments));
+    public void makeLinkingFromFile(String inputFile, String outputFile, boolean withComments) {
+        writeToFile(outputFile, makeLinkingFromFile(inputFile, withComments));
     }
 
 
@@ -149,6 +149,15 @@ public class EdsacLinker {
         writeToFile(outputFile, result);
 
 
+    }
+
+    public void printNumberOfLines(String inputFile, String outputFile) {
+        String lines[] = parseFromFile(inputFile).split("\n");
+        String result = "";
+        for (int i = 0; i < lines.length; i++)
+            result += i+1 + ":" + lines[i] + "\n";
+
+        writeToFile(outputFile, result);
     }
 
 }
