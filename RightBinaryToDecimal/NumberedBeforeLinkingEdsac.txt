@@ -85,7 +85,7 @@
 85:L0L
 86:U<firstFractionPart>S
 87:G<void addOneToFirstIntegerPart2>S
-88:T<delete>S[link_addOneToFirstIntegerPart2_link]
+88:T<delete>S[link_backFrom_addOneToFirstIntegerPart2_link]
 89:Z0S[-------------------------------------------КОНТРОЛЬ ЗНАКА В ПЕРЕПОЛНЕНИИ]
 90:H<MINUS_DESTROYER>S
 91:C<firstFractionPart>S

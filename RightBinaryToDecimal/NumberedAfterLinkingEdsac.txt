@@ -77,7 +77,7 @@
 77:A43S
 78:A35S
 79:T43S
-80:E<backFrom_addOneToFirstIntegerPart2>S
+80:E118S
 81:T194S[link_void controlDecimalOverFlow_link---------------------]
 82:A43S
 83:A35S
@@ -115,7 +115,7 @@
 115:L0L
 116:U42S
 117:G76S
-118:T194S[link_addOneToFirstIntegerPart2_link]
+118:T194S[link_backFrom_addOneToFirstIntegerPart2_link]
 119:Z0S[-------------------------------------------КОНТРОЛЬ ЗНАКА В ПЕРЕПОЛНЕНИИ]
 120:H37S
 121:C42S
