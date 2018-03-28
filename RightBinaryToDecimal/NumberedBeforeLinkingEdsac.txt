@@ -1,0 +1,164 @@
+1:﻿T<delete>S
+2:E<start>S
+3:Z0S[----------------------------КОНСТАНТЫ-----------------------------------]
+4:P0S[link_ZERO_link]
+5:P0L[link_ONE_link]
+6:P1S[link_TWO_link]
+7:P32767L[link_MINUS_DESTROYER_link]
+8:#0S[link_FIGURE_SHIFT_link]
+9:Z0S[----------------------------ПЕРЕМЕННЫЕ----------------------------------]
+10:Y0S[link_defDigit_link]
+11:Y0S[link_defDigitCopy_link]
+12:P0S[link_firstFractionPart_link]
+13:P0S[link_firstIntegerPart_link]
+14:P0S[link_secondFractionPart_link]
+15:P0S[link_secondIntegerPart_link]
+16:P8S[link_fillRazrDigit_link]
+17:Z0S[--------------------------ДЕСЯТИЧНОЕ ПРЕДСТАВЛЕНИЕ----------------------]
+18:P0S[link_Sign_link]
+19:M0S[link_Dot_link]
+20:P0S[link_1 Decimal_link]
+21:P0S[link_2 Decimal_link]
+22:P0S[link_3 Decimal_link]
+23:P0S[link_4 Decimal_link]
+24:P0S[link_5 Decimal_link]
+25:P0S[link_6 Decimal_link]
+26:P0S[link_7 Decimal_link]
+27:P0S[link_8 Decimal_link]
+28:P0S[link_9 Decimal_link]
+29:P0S[link_10 Decimal_link]
+30:P0S[link_11 Decimal_link]
+31:P0S[link_12 Decimal_link]
+32:P0S[link_13 Decimal_link]
+33:P0S[link_14 Decimal_link]
+34:P0S[link_15 Decimal_link]
+35:P0S[link_16 Decimal_link]
+36:Z0S[--------------------------------ФУНКЦИИ---------------------------------]
+37:T<delete>S[link_void minusOneControl_link----------------------------]
+38:A<ONE>S
+39:T<Sign>S
+40:E<exit>S
+41:T<delete>S[link_void addOneToFirstIntegerPart1_link------------------]
+42:A<firstIntegerPart>S
+43:A<ONE>S
+44:T<firstIntegerPart>S
+45:E<backFrom_addOneToFirstIntegerPart1>S
+46:T<delete>S[link_void addOneToFirstIntegerPart2_link------------------]
+47:A<firstIntegerPart>S
+48:A<ONE>S
+49:T<firstIntegerPart>S
+50:E<backFrom_addOneToFirstIntegerPart2>S
+51:T<delete>S[link_void controlDecimalOverFlow_link---------------------]
+52:A<firstIntegerPart>S
+53:A<ONE>S
+54:T<firstIntegerPart>S
+55:E<backFrom_controlDecimalOverFlow>S
+56:T<delete>S[link_void controlFinalDecimalOverFlow_link----------------]
+57:A<firstIntegerPart>S
+58:A<ONE>S
+59:T<firstIntegerPart>S
+60:E<backFrom_controlFinalDecimalOverFlow>S
+61:T<delete>S[link_start_link]
+62:Z0S[-------СОХРАНЯЕМ ВТОРОЕ СЛАГАЕМОЕ И ПРОВЕРЯЕМ, ЧТО ИСХОДНОЕ ЧИСЛО !=(-1)]
+63:A<defDigit>S
+64:G<void minusOneControl>S
+65:U<secondFractionPart>S
+66:T<firstFractionPart>S
+67:Z0S[---------------------------------------------ПЕРВЫЙ СДВИГ НА 1 БИТ ВЛЕВО]
+68:A<firstIntegerPart>S
+69:L0L
+70:T<firstIntegerPart>S
+71:A<firstFractionPart>S
+72:L0L
+73:U<firstFractionPart>S
+74:G<void addOneToFirstIntegerPart1>S
+75:T<delete>S[link_backFrom_addOneToFirstIntegerPart1_link]
+76:Z0S[-------------------------------------------КОНТРОЛЬ ЗНАКА В ПЕРЕПОЛНЕНИИ]
+77:H<MINUS_DESTROYER>S
+78:C<firstFractionPart>S
+79:T<firstFractionPart>S
+80:Z0S[---------------------------------------------ВТОРОЙ СДВИГ НА 1 БИТ ВЛЕВО]
+81:A<firstIntegerPart>S
+82:L0L
+83:T<firstIntegerPart>S
+84:A<firstFractionPart>S
+85:L0L
+86:U<firstFractionPart>S
+87:G<void addOneToFirstIntegerPart2>S
+88:T<delete>S[link_addOneToFirstIntegerPart2_link]
+89:Z0S[-------------------------------------------КОНТРОЛЬ ЗНАКА В ПЕРЕПОЛНЕНИИ]
+90:H<MINUS_DESTROYER>S
+91:C<firstFractionPart>S
+92:T<firstFractionPart>S
+93:Z0S[--------------------------------------------------СЛОЖЕНИЕ ДРОБНОЙ ЧАСТИ]
+94:A<firstFractionPart>S
+95:A<secondFractionPart>S
+96:U<firstFractionPart>S
+97:G<void controlDecimalOverFlow>S
+98:T<delete>S[link_backFrom_controlDecimalOverFlow_link]
+99:Z0S[-------------------------------------------КОНТРОЛЬ ЗНАКА В ПЕРЕПОЛНЕНИИ]
+100:H<MINUS_DESTROYER>S
+101:C<firstFractionPart>S
+102:T<firstFractionPart>S
+103:Z0S[-----------------------------------ПОЛУЧЕНИЕ ТЕКУЩУЕГО РАЗРЯДА ДО СДВИГА]
+104:A<firstIntegerPart>S
+105:A<secondIntegerPart>S
+106:T<firstIntegerPart>S
+107:Z0S[----------------------------------------------ИТОГОВЫЙ СДВИГ ЦЕЛОЙ ЧАСТИ]
+108:A<firstIntegerPart>S
+109:L0L
+110:T<firstIntegerPart>S
+111:Z0S[--------------------------------------------ИТОГОВЫЙ СДВИГ ДРОБНОЙ ЧАСТИ]
+112:A<firstFractionPart>S
+113:L0L
+114:U<firstFractionPart>S
+115:G<void controlFinalDecimalOverFlow>S
+116:T<delete>S
+117:H<MINUS_DESTROYER>S[link_backFrom_controlFinalDecimalOverFlow_link]
+118:C<firstFractionPart>S
+119:U<firstFractionPart>S
+120:T<defDigit>S
+121:Z0S[----------------------------------------------ПОЛУЧЕНИЕ ТЕКУЩЕГО РАЗРЯДА]
+122:A<firstIntegerPart>S
+123:L1024S
+124:T<1 Decimal>S[link_modifInstr_link]
+125:Z0S[-----------------------------------ПРОВЕРКА И ИЗМЕНЕНИЕ ПЕРЕМЕННОЙ ЦИКЛА]
+126:A<fillRazrDigit>S
+127:S<ONE>S
+128:U<fillRazrDigit>S
+129:G<exit>S
+130:T<delete>S
+131:Z0S[----------------------------------------------------ОБНУЛЕНИЕ ПЕРЕМЕННЫХ]
+132:A<ZERO>S
+133:U<firstIntegerPart>S
+134:U<secondIntegerPart>S
+135:U<firstFractionPart>S
+136:U<secondFractionPart>S
+137:T<delete>S
+138:Z0S[------------------------------МОДИФИКАЦИЯ ИНСТРУКЦИЙ ЗАПОЛНЯЮЩИХ РАЗРЯДЫ]
+139:A<TWO>S
+140:A<modifInstr>S
+141:T<modifInstr>S
+142:E<start>S
+143:T<delete>S[link_exit_link-------------ВЫВОД ПОЛУЧЕННОГО ЧИСЛА НА ТЕЛЕПРИНТЕР]
+144:O<FIGURE_SHIFT>S
+145:O<Sign>S
+146:O<Dot>S
+147:O<1 Decimal>S
+148:O<2 Decimal>S
+149:O<3 Decimal>S
+150:O<4 Decimal>S
+151:O<5 Decimal>S
+152:O<6 Decimal>S
+153:O<7 Decimal>S
+154:O<8 Decimal>S
+155:O<9 Decimal>S
+156:O<10 Decimal>S
+157:O<11 Decimal>S
+158:O<12 Decimal>S
+159:O<13 Decimal>S
+160:O<14 Decimal>S
+161:O<15 Decimal>S
+162:O<16 Decimal>S
+163:Z0S
+164:link_delete_link

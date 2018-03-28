@@ -1,0 +1,193 @@
+1:
+2:
+3:
+4:
+5:
+6:
+7:
+8:
+9:
+10:
+11:
+12:
+13:
+14:
+15:
+16:
+17:
+18:
+19:
+20:
+21:
+22:
+23:
+24:
+25:
+26:
+27:
+28:
+29:
+30:
+31:﻿T194S
+32:E91S
+33:Z0S[----------------------------КОНСТАНТЫ-----------------------------------]
+34:P0S[link_ZERO_link]
+35:P0L[link_ONE_link]
+36:P1S[link_TWO_link]
+37:P32767L[link_MINUS_DESTROYER_link]
+38:#0S[link_FIGURE_SHIFT_link]
+39:Z0S[----------------------------ПЕРЕМЕННЫЕ----------------------------------]
+40:Y0S[link_defDigit_link]
+41:Y0S[link_defDigitCopy_link]
+42:P0S[link_firstFractionPart_link]
+43:P0S[link_firstIntegerPart_link]
+44:P0S[link_secondFractionPart_link]
+45:P0S[link_secondIntegerPart_link]
+46:P8S[link_fillRazrDigit_link]
+47:Z0S[--------------------------ДЕСЯТИЧНОЕ ПРЕДСТАВЛЕНИЕ----------------------]
+48:P0S[link_Sign_link]
+49:M0S[link_Dot_link]
+50:P0S[link_1 Decimal_link]
+51:P0S[link_2 Decimal_link]
+52:P0S[link_3 Decimal_link]
+53:P0S[link_4 Decimal_link]
+54:P0S[link_5 Decimal_link]
+55:P0S[link_6 Decimal_link]
+56:P0S[link_7 Decimal_link]
+57:P0S[link_8 Decimal_link]
+58:P0S[link_9 Decimal_link]
+59:P0S[link_10 Decimal_link]
+60:P0S[link_11 Decimal_link]
+61:P0S[link_12 Decimal_link]
+62:P0S[link_13 Decimal_link]
+63:P0S[link_14 Decimal_link]
+64:P0S[link_15 Decimal_link]
+65:P0S[link_16 Decimal_link]
+66:Z0S[--------------------------------ФУНКЦИИ---------------------------------]
+67:T194S[link_void minusOneControl_link----------------------------]
+68:A35S
+69:T48S
+70:E173S
+71:T194S[link_void addOneToFirstIntegerPart1_link------------------]
+72:A43S
+73:A35S
+74:T43S
+75:E105S
+76:T194S[link_void addOneToFirstIntegerPart2_link------------------]
+77:A43S
+78:A35S
+79:T43S
+80:E<backFrom_addOneToFirstIntegerPart2>S
+81:T194S[link_void controlDecimalOverFlow_link---------------------]
+82:A43S
+83:A35S
+84:T43S
+85:E128S
+86:T194S[link_void controlFinalDecimalOverFlow_link----------------]
+87:A43S
+88:A35S
+89:T43S
+90:E147S
+91:T194S[link_start_link]
+92:Z0S[-------СОХРАНЯЕМ ВТОРОЕ СЛАГАЕМОЕ И ПРОВЕРЯЕМ, ЧТО ИСХОДНОЕ ЧИСЛО !=(-1)]
+93:A40S
+94:G67S
+95:U44S
+96:T42S
+97:Z0S[---------------------------------------------ПЕРВЫЙ СДВИГ НА 1 БИТ ВЛЕВО]
+98:A43S
+99:L0L
+100:T43S
+101:A42S
+102:L0L
+103:U42S
+104:G71S
+105:T194S[link_backFrom_addOneToFirstIntegerPart1_link]
+106:Z0S[-------------------------------------------КОНТРОЛЬ ЗНАКА В ПЕРЕПОЛНЕНИИ]
+107:H37S
+108:C42S
+109:T42S
+110:Z0S[---------------------------------------------ВТОРОЙ СДВИГ НА 1 БИТ ВЛЕВО]
+111:A43S
+112:L0L
+113:T43S
+114:A42S
+115:L0L
+116:U42S
+117:G76S
+118:T194S[link_addOneToFirstIntegerPart2_link]
+119:Z0S[-------------------------------------------КОНТРОЛЬ ЗНАКА В ПЕРЕПОЛНЕНИИ]
+120:H37S
+121:C42S
+122:T42S
+123:Z0S[--------------------------------------------------СЛОЖЕНИЕ ДРОБНОЙ ЧАСТИ]
+124:A42S
+125:A44S
+126:U42S
+127:G81S
+128:T194S[link_backFrom_controlDecimalOverFlow_link]
+129:Z0S[-------------------------------------------КОНТРОЛЬ ЗНАКА В ПЕРЕПОЛНЕНИИ]
+130:H37S
+131:C42S
+132:T42S
+133:Z0S[-----------------------------------ПОЛУЧЕНИЕ ТЕКУЩУЕГО РАЗРЯДА ДО СДВИГА]
+134:A43S
+135:A45S
+136:T43S
+137:Z0S[----------------------------------------------ИТОГОВЫЙ СДВИГ ЦЕЛОЙ ЧАСТИ]
+138:A43S
+139:L0L
+140:T43S
+141:Z0S[--------------------------------------------ИТОГОВЫЙ СДВИГ ДРОБНОЙ ЧАСТИ]
+142:A42S
+143:L0L
+144:U42S
+145:G86S
+146:T194S
+147:H37S[link_backFrom_controlFinalDecimalOverFlow_link]
+148:C42S
+149:U42S
+150:T40S
+151:Z0S[----------------------------------------------ПОЛУЧЕНИЕ ТЕКУЩЕГО РАЗРЯДА]
+152:A43S
+153:L1024S
+154:T50S[link_modifInstr_link]
+155:Z0S[-----------------------------------ПРОВЕРКА И ИЗМЕНЕНИЕ ПЕРЕМЕННОЙ ЦИКЛА]
+156:A46S
+157:S35S
+158:U46S
+159:G173S
+160:T194S
+161:Z0S[----------------------------------------------------ОБНУЛЕНИЕ ПЕРЕМЕННЫХ]
+162:A34S
+163:U43S
+164:U45S
+165:U42S
+166:U44S
+167:T194S
+168:Z0S[------------------------------МОДИФИКАЦИЯ ИНСТРУКЦИЙ ЗАПОЛНЯЮЩИХ РАЗРЯДЫ]
+169:A36S
+170:A154S
+171:T154S
+172:E91S
+173:T194S[link_exit_link-------------ВЫВОД ПОЛУЧЕННОГО ЧИСЛА НА ТЕЛЕПРИНТЕР]
+174:O38S
+175:O48S
+176:O49S
+177:O50S
+178:O51S
+179:O52S
+180:O53S
+181:O54S
+182:O55S
+183:O56S
+184:O57S
+185:O58S
+186:O59S
+187:O60S
+188:O61S
+189:O62S
+190:O63S
+191:O64S
+192:O65S
+193:Z0S
