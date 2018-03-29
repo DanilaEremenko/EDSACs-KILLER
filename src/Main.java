@@ -6,6 +6,7 @@ public class Main {
     public static void main(String[] args) {
         EdsacLinker edsacLinker = new EdsacLinker("link_", "_link");
         edsacLinker.makeLinkingFromFile(input, output, withComments);
+
         //Для отчета
         //String numberedInput = "RightBinaryToDecimal/NumberedBeforeLinkingEdsac.txt";
         //String numberedOutput = "RightBinaryToDecimal/NumberedAfterLinkingEdsac.txt";
