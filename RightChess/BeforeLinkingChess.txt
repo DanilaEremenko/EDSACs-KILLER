@@ -1,19 +1,18 @@
 T<delete>S
+Z0S
 E<start>S
-Z0S[-------------------------ТУТ ДОЛЖНО БЫТЬ НАПИСАНО ШАХ-----------------]
-
-
-Z0S[-------------------------ТУТ ДОЛЖНО БЫТЬ НАПИСАНО НЕ ШАХ--------------]
-
-
-Z0S[--------------------------ВСЯКИЕ ТАМ КОНСТАНТЫ------------------------]
-
+U<delete>S[-------------------------ВЫВОД--------------------------------------]
+#0S[link_FIGURE_SHIFT_link]
+P0S[link_print0_link]
+Q0S[link_print1_link]
+U<delete>S[--------------------------КОНСТАНТЫ---------------------------------]
 P0S[link_ZERO_link]
 P0L[link_ONE_link]
 P1S[link_TWO_link]
-P1L[link_THREE_link]
+U<delete>S[-------------------------КООРДИНАТЫ ЧЕРНЫХ ФИГУР--------------------]
 
-Z0S[-------------------------КООРДИНАТЫ ЧЕРНЫХ---------------------------]
+P4S[link_blackFiguresNumber_link]
+
 P0L[link_X 1 Ч_пешка_link]
 P1S[link_Y 1 Ч_пешка_link]
 
@@ -38,149 +37,280 @@ P1S[Y 7 Ч_пешка]
 P4S[X 8 Ч_пешка]
 P1S[Y 8 Ч_пешка]
 
-P0L[X 1 Ч_слон]
-P0L[Y 1 Ч_слон]
+P2L[link_X Ч_король_link]
+P0L[link_Y Ч_король_link]
+U<delete>S[-------------------------КООРДИНАТЫ БЕЛОГО КОРОЛЯ-------------------]
 
-P4S[X 2 Ч_слон]
-P0L[Y 2 Ч_слон]
+P3S[link_X Б_король_link]
+P0L[link_Y Б_король_link]
 
-P1S[X 1 Ч_конь]
-P0L[Y 1 Ч_конь]
+U<delete>S[---------БУФЕРЫ ДЛЯ ХРАНЕНИЯ ТЕУЩИХ ПРОВЕРЯЕМЫХ КООРДИНАТ-----------]
 
-P3L[X 2 Ч_конь]
-P0L[Y 2 Ч_конь]
-
-P1L[X 1 Ч_офицер]
-P0L[Y 1 Ч_офицер]
-
-P3S[X 2 Ч_офицер]
-P0L[Y 2 Ч_офицер]
-
-P2S[X Ч_ферзь]
-P0L[Y Ч_ферзь]
-
-P2L[X Ч_король]
-P0L[Y Ч_король]
-Z0S[-------------------------КООРДИНАТЫ БЕЛЫХ---------------------------]
-P0L[X 1 Б_пешка]
-P3L[Y 1 Б_пешка]
-
-P1S[X 2 Б_пешка]
-P3L[Y 2 Б_пешка]
-
-P1L[X 3 Б_пешка]
-P3L[Y 3 Б_пешка]
-
-P2S[X 4 Б_пешка]
-P3L[Y 4 Б_пешка]
-
-P2L[X 5 Б_пешка]
-P3L[Y 5 Б_пешка]
-
-P3S[X 6 Б_пешка]
-P3L[Y 6 Б_пешка]
-
-P3L[X 7 Б_пешка]
-P3L[Y 7 Б_пешка]
-
-P4S[X 8 Б_пешка]
-P3L[Y 8 Б_пешка]
-
-P0L[X 1 Б_слон]
-P0L[Y 1 Б_слон]
-
-P4S[X 2 Б_слон]
-P0L[Y 2 Б_слон]
-
-P1S[X 1 Б_конь]
-P0L[Y 1 Б_конь]
-
-P3L[X 2 Б_конь]
-P0L[Y 2 Б_конь]
-
-P1L[X 1 Б_офицер]
-P0L[Y 1 Б_офицер]
-
-P3S[X 2 Б_офицер]
-P0L[Y 2 Б_офицер]
-
-P2S[X Б_ферзь]
-P0L[Y Б_ферзь]
-
-P2L[X Б_король]
-P0L[Y Б_король]
-[-------------------------------------ФУНКЦИИ---------------------------]
-T<delete>S[link_void modifInstr_link]
-A<TWO>S
-A<modifInstrX>
-T<modifInstrX>
-A<TWO>S
-A<modifInstrY>
-T<modifInstrY>
-E<start>
-[---------БУФЕРЫ ДЛЯ ХРАНЕНИЯ ТЕУЩИХ ПРОВЕРЯЕМЫХ КООРДИНАТ--------------]
 P0S[link_currentX_link]
 P0S[link_currentY_link]
+
+Z0S[------МОДИФИКАЦИЯ ИНСТРУКЦИЙ И КОНТРОЛЬ ПЕРЕМЕННОЙ ЦИКЛА-------------------]
+T<delete>S[link_void modifInstr_link]
+A<blackFiguresNumber>S
+S<ONE>S
+U<blackFiguresNumber>S
+G<knightStep>S
+T<delete>S
+A<TWO>S
+A<modifInstrX>S
+T<modifInstrX>S
+A<TWO>S
+A<modifInstrY>S
+T<modifInstrY>S
+E<start>S
+
 T<delete>S[link_start_link]
-Z0S[-------------------------ПРОВЕРЯЕМ ПЕШКИ----------------------------]
-[ПРАВАЯ КЛЕТКА]
+Z0S[-----------НАЧАЛО ПРОГРАММЫ И ПРОВЕРКА ТЕУЩЕЙ ПРАВОЙ КЛЕТКИ----------------]
+
 T<delete>S[link_void checkRightCell_link]
 
 A<X 1 Ч_пешка>S[link_modifInstrX_link]
 A<ONE>S
-T<currentX>
+T<currentX>S
 A<Y 1 Ч_пешка>S[link_modifInstrY_link]
 A<ONE>S
-T<currentY>
+T<currentY>S
 
-A<X Б_король>
-S<currentX>
+A<X Б_король>S
+S<currentX>S
 G<void checkLeftCell>S
 S<ONE>S
 E<void checkLeftCell>S
 
 T<delete>S
 
-A<Y Б_король>
-S<currentY>
+A<Y Б_король>S
+S<currentY>S
 G<void checkLeftCell>S
 S<ONE>S
 E<void checkLeftCell>S
 G<exitWithShah>S
 
-[ЛЕВАЯ КЛЕТКА]
+Z0S[------------------------ПРОВЕРЯЕМ ЛЕВУЮ КЛЕТКУ------------------------]
+
 T<delete>S[link_void checkLeftCell_link]
-[------------------------------------ЧИСТИМ БУФЕРЫ----------------------]
-A<ZERO>S
-U<currentX>S
-T<currentY>S
-[------------------------НАЧИНАЕМ ВТОРУЮ ПРОВЕРКУ-----------------------]
+
 A<X 1 Ч_пешка>S[link_modifInstrX_link]
 S<ONE>S
-T<currentX>
+T<currentX>S
 A<Y 1 Ч_пешка>S[link_modifInstrY_link]
 A<ONE>S
-T<currentY>
+T<currentY>S
 
-A<X Б_король>
-S<currentX>
+A<X Б_король>S
+S<currentX>S
 G<void modifInstr>S
 S<ONE>S
 E<void modifInstr>S
 
 T<delete>S
 
-A<Y Б_король>
-S<currentY>
+A<Y Б_король>S
+S<currentY>S
 G<void modifInstr>S
 S<ONE>S
 E<void modifInstr>S
 G<exitWithShah>S
 
 
+Z0S[-----------------------ПРОВЕРЯЕМ КОРОЛЯ------------------------------------]
+
+T<delete>S[link_knightStep_link,-------------------ЛЕВАЯ ВЕРХНЯЯ ДИАГОНАЛЬ]
+
+A<X Ч_король>S
+S<ONE>S
+T<currentX>S
+A<Y Ч_король>S
+A<ONE>S
+T<currentY>S
+
+A<X Б_король>S
+S<currentX>S
+G<up>S
+S<ONE>S
+E<up>S
+
+T<delete>S
+
+A<Y Б_король>S
+S<currentY>S
+G<up>S
+S<ONE>S
+E<up>S
+G<exitWithShah>S
+
+
+T<delete>S[link_up_link, --------------------------------------------ВВЕРХ]
+A<X Ч_король>S
+T<currentX>S
+A<Y Ч_король>S
+A<ONE>S
+T<currentY>S
+A<X Б_король>S
+S<currentX>S
+G<rightUp>S
+S<ONE>S
+E<rightUp>S
+
+T<delete>S
+
+A<Y Б_король>S
+S<currentY>S
+G<rightUp>S
+S<ONE>S
+E<rightUp>S
+G<exitWithShah>S
+
+T<delete>S[link_rightUp_link,---------------------ПРАВАЯ ВЕРХНЯЯ ДИАГОНАЛЬ]
+A<X Ч_король>S
+A<ONE>S
+T<currentX>S
+A<Y Ч_король>S
+A<ONE>S
+T<currentY>S
+
+A<X Б_король>S
+S<currentX>S
+G<right>S
+S<ONE>S
+E<right>S
+
+T<delete>S
+
+A<Y Б_король>S
+S<currentY>S
+G<right>S
+S<ONE>S
+E<right>S
+G<exitWithShah>S
+
+T<delete>S[link_right_link, ----------------------------------------ВПРАВО]
+A<X Ч_король>S
+A<ONE>S
+T<currentX>S
+A<Y Ч_король>S
+T<currentY>S
+
+A<X Б_король>S
+S<currentX>S
+G<rightDown>S
+S<ONE>S
+E<rightDown>S
+
+T<delete>S
+
+A<Y Б_король>S
+S<currentY>S
+G<rightDown>S
+S<ONE>S
+E<rightDown>S
+G<exitWithShah>S
+
+T<delete>S[link_rightDown_link,--------------------ПРАВАЯ НИЖНЯЯ ДИАГОНАЛЬ]
+A<X Ч_король>S
+A<ONE>S
+T<currentX>S
+A<Y Ч_король>S
+S<ONE>S
+T<currentY>S
+
+A<X Б_король>S
+S<currentX>S
+G<down>S
+S<ONE>S
+E<down>S
+
+T<delete>S
+
+A<Y Б_король>S
+S<currentY>S
+G<down>S
+S<ONE>S
+E<down>S
+G<exitWithShah>S
+
+T<delete>S[link_down_link,--------------------------------------------ВНИЗ]
+A<X Ч_король>S
+T<currentX>S
+A<Y Ч_король>S
+S<ONE>S
+T<currentY>S
+
+A<X Б_король>S
+S<currentX>S
+G<leftDown>S
+S<ONE>S
+E<leftDown>S
+
+T<delete>S
+
+A<Y Б_король>S
+S<currentY>S
+G<leftDown>S
+S<ONE>S
+E<leftDown>S
+G<exitWithShah>S
+
+T<delete>S[link_leftDown_link,----------------------ЛЕВАЯ НИЖНЯЯ ДИАГОНАЛЬ]
+A<X Ч_король>S
+S<ONE>S
+T<currentX>S
+A<Y Ч_король>S
+S<ONE>S
+T<currentY>S
+
+A<X Б_король>S
+S<currentX>S
+G<left>S
+S<ONE>S
+E<left>S
+
+T<delete>S
+
+A<Y Б_король>S
+S<currentY>S
+G<left>S
+S<ONE>S
+E<left>S
+G<exitWithShah>S
+
+T<delete>S[link_left_link,------------------------------------------ВЛЕВО]
+A<X Ч_король>S
+S<ONE>S
+T<currentX>S
+A<Y Ч_король>S
+T<currentY>S
+
+A<X Б_король>S
+S<currentX>S
+G<exitWithoutShah>S
+S<ONE>S
+E<exitWithoutShah>S
+
+T<delete>S
+
+A<Y Б_король>S
+S<currentY>S
+G<exitWithoutShah>S
+S<ONE>S
+E<exitWithoutShah>S
+G<exitWithShah>S
+
+
+Z0S[--------------------------------ФИНАЛЬНЫЕ ВЫВОДЫ---------------------------]
+T<delete>S[link_exitWithoutShah_link]
+O<FIGURE_SHIFT>S
+O<print0>S
+E<finalExit>S
 
 T<delete>S[link_exitWithShah_link]
+O<FIGURE_SHIFT>S
+O<print1>S
 
-T<delete>S[link_exitWithoutShah_link]
-
+Z0S[link_finalExit_link]
 link_delete_link
