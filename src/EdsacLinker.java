@@ -15,7 +15,7 @@ public class EdsacLinker {
     }
 
     public String makeLinking(String edsacCode, boolean withComments) {
-        String result = edsacCode;
+        String result = deleteUnusedLines(edsacCode);
         HashMap<String, Integer> alphabet = alphabetMake(result);
         result = replaceIndices(result, alphabet);
         if (!withComments)
@@ -59,6 +59,17 @@ public class EdsacLinker {
         }
 
         return alphabet;
+    }
+
+    private String deleteUnusedLines(String string) {
+        String lines[] = string.split("\n");
+        String result = "";
+        for (int i = 0; i < lines.length; i++) {
+            if (lines[i].equals("\r"))
+                result += "";
+            else result += lines[i]+"\n";
+        }
+        return result;
     }
 
 
@@ -155,7 +166,7 @@ public class EdsacLinker {
         String lines[] = parseFromFile(inputFile).split("\n");
         String result = "";
         for (int i = 0; i < lines.length; i++)
-            result += i+1 + ":" + lines[i] + "\n";
+            result += i + 1 + ":" + lines[i] + "\n";
 
         writeToFile(outputFile, result);
     }
