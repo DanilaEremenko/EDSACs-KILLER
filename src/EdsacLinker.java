@@ -65,9 +65,9 @@ public class EdsacLinker {
         String lines[] = string.split("\n");
         String result = "";
         for (int i = 0; i < lines.length; i++) {
-            if (lines[i].equals("\r"))
+            if (lines[i].equals("\r") || lines[i].equals(""))
                 result += "";
-            else result += lines[i]+"\n";
+            else result += lines[i] + "\n";
         }
         return result;
     }
