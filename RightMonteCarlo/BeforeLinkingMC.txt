@@ -6,31 +6,35 @@ U0S[---------------------VARIABLES_----------------------------------]
 P0S[link_sum_link]
 P15L[link_x0_link]
 P15L[link_y0_link]
-P15L[link_x_link]
-P15L[link_y_link]
-P0S[link_last-x0_link]
-P0S[link_last-y0_link]
-P0S[link_current-razr_link]
+P15L[link_x1_link]
+P15L[link_y1_link]
+P0S[link_tempX0_link]
+P0S[link_tempY0_link]
+P0S[link_currentRazr_link]
 
 U0S[---------------------CONST---------------------------------------]
 
-P11L[link_a_link]
-P512L[link_m_link]
-P5S[link_n_link]
-P32767L[link_mask_link]
-P5S[link_ten_link]
-P2S[link_size_link]
-P0S[link_zero_link]
-P0L[link_one_link]
-P1S[link_two_link]
+P11L[link_A_link]
+P512L[link_M_link]
+P5S[link_N_link]
+P32767L[link_MASK_link]
+P5S[link_TEN_link]
+P2S[link_SIZE_link]
+P0S[link_ZERO_link]
+P0L[link_ONE_link]
+P1S[link_TWO_link]
+#0S[link_FIGURE_SHIFT_link]
 
 U0S[-----------------------ARRAY-------------------------------------]
 
-P0S
-P0S[link_array1_link]
-P0S
-P0S
-P0S
+P0S[link_1_Integer_link]
+
+M0S[link_Dot_link]
+
+P0S[link_1_Decimal_link]
+P0S[link_2_Decimal_link]
+P0S[link_3_Decimal_link]
+P0S[link_4_Decimal_link]
 
 
 
@@ -109,5 +113,32 @@ A<size>S
 S<one>S
 G<finalExit>S
 E<dev>S
-Z0S[link_finalExit_link]
+Z0S[link_finalExit_link,-------------ВЫВОД ПОЛУЧЕННОГО ЧИСЛА---------]
+
+O<FIGURE_SHIFT>S
+
+A<1_Integer>S
+
+O<Dot>S
+
+A<1_Decimal>S
+L1024S
+T<1_Decimal>S
+O<1_Decimal>S
+
+A<2_Decimal>S
+L1024S
+T<2_Decimal>S
+O<2_Decimal>S
+
+A<3_Decimal>S
+L1024S
+T<3_Decimal>S
+O<3_Decimal>S
+
+A<4_Decimal>S
+L1024S
+T<4_Decimal>S
+O<4_Decimal>S
+
 link_delete_link
