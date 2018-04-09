@@ -5,7 +5,7 @@ import java.util.HashMap;
 import static org.junit.Assert.*;
 
 public class EdsacLinkerTest {
-    EdsacLinker edsacLinker=new EdsacLinker("var_","_var");
+    EdsacLinker edsacLinker = new EdsacLinker("var_", "_var");
 
     @Test
     public void alphabetMake() {
@@ -51,7 +51,7 @@ public class EdsacLinkerTest {
         input = edsacLinker.deleteComments(input);
         output = edsacLinker.deleteComments(output);
 
-        assertEquals(output, edsacLinker.replaceIndices(input, alphabet));
+        assertEquals(output, edsacLinker.replaceIndices(input, alphabet, false));
 
     }
 
@@ -64,16 +64,64 @@ public class EdsacLinkerTest {
     }
 
 
+//    @Test
+//    public void easyWayFromFile(){
+//        String eW = edsacLinker.makeLinking(realExampleInput(), false);
+//        String eWFF = edsacLinker.makeLinkingFromFile("Tests/ReplacedFile.txt", false);
+//        assertEquals(eW + "\n", eWFF);
+//    }
+
     @Test
-    public void easyWayFromFile(){
-        String eW = edsacLinker.makeLinking(realExampleInput(), false);
-        String eWFF = edsacLinker.makeLinkingFromFile("Tests/ReplacedFile.txt", false);
-        assertEquals(eW + "\n", eWFF);
+    public void deleteUnusedLines() {
+        EdsacLinker edsacLinker = new EdsacLinker("link_", "_link");
+        assertEquals("\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "T36S[delete]\n" +
+                "A34S[A]\n" +
+                "A35S[B]\n" +
+                "P0S<link_A_link>, link_A_link]\n" +
+                "P0S<link_B_link>, link_B_link]", edsacLinker.makeLinking("T<delete>S\n" +
+                "\n" +
+                "A<A>S\n" +
+                "A<B>S\n" +
+                "\n" +
+                "\n" +
+                "P0S<link_A_link>\n" +
+                "P0S<link_B_link>\n" +
+                "link_delete_link", true));
+
     }
 
-
     @Test
-    public void rightWrite(){
+    public void rightWrite() {
         edsacLinker.makeLinking(realExampleInput(), "Tests\\ResultOfWriting.txt", false);
 
         assertEquals(edsacLinker.makeLinking(realExampleInput(), false),

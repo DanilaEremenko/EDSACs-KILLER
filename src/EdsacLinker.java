@@ -17,7 +17,7 @@ public class EdsacLinker {
     public String makeLinking(String edsacCode, boolean withComments) {
         String result = deleteUnusedLines(edsacCode);
         HashMap<String, Integer> alphabet = alphabetMake(result);
-        result = replaceIndices(result, alphabet);
+        result = replaceIndices(result, alphabet, withComments);
         if (!withComments)
             result = deleteComments(result);
         return result;
@@ -28,7 +28,7 @@ public class EdsacLinker {
     public void makeLinking(String edsacCode, String outputFile, boolean withComments) {
         String result = edsacCode;
         HashMap<String, Integer> alphabet = alphabetMake(result);
-        result = replaceIndices(result, alphabet);
+        result = replaceIndices(result, alphabet, withComments);
         if (!withComments)
             result = deleteComments(result);
         writeToFile(outputFile, result);
@@ -73,23 +73,37 @@ public class EdsacLinker {
     }
 
 
-    public String replaceIndices(String edsacCode, HashMap<String, Integer> alphabet) {
-        String result = edsacCode;
+    public String replaceIndices(String edsacCode, HashMap<String, Integer> alphabet, boolean withComments) {
         String splitResult[] = edsacCode.split("\n");
         //Дописываем комментарий с адресом
         for (int i = 0; i < splitResult.length; i++) {
-            if (splitResult[i].contains("<") && splitResult[i].contains(">")) {
-                splitResult[i] += "[" + splitResult[i].substring(splitResult[i].indexOf("<"),
-                        splitResult[i].indexOf(">")) + "]";
+            if (splitResult[i].contains("<") && splitResult[i].contains(">") && withComments) {
+                splitResult[i] = splitResult[i].replace("\r", "");
+                if (!splitResult[i].contains("link"))
+                    splitResult[i] = splitResult[i] + "[" + splitResult[i].substring(splitResult[i].indexOf("<") + 1,
+                            splitResult[i].indexOf(">")) + "]";
+                else {
+                    splitResult[i] = splitResult[i].replace("]", "");
+                    splitResult[i] = splitResult[i] + ", " + splitResult[i].substring(splitResult[i].indexOf("<") + 1,
+                            splitResult[i].indexOf(">")) + "]";
+                }
             }
+        }
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < splitResult.length; i++) {
+            if (i < splitResult.length - 1)
+                result.append(splitResult[i]).append("\n");
+            else
+                result.append(splitResult[i]);
+
         }
 
         for (Map.Entry<String, Integer> entry : alphabet.entrySet())
-            result = result.replace(entry.getKey(), "" + entry.getValue());
-        result = result.replace("\n" + startOfLink + "delete" + endOfLink, "");
-        result = "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n" + result;
+            result = new StringBuilder(result.toString().replace(entry.getKey(), "" + entry.getValue()));
+        result = new StringBuilder(result.toString().replace("\n" + startOfLink + "delete" + endOfLink, ""));
+        result.insert(0, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
-        return result;
+        return result.toString();
     }
 
 
