@@ -563,5 +563,5 @@ T<delete>S[link_exitWithShah_link]
 O<FIGURE_SHIFT>S
 O<print1>S
 
-Z0S[link_finalExit_link]
+Z0S[link_finalExit_link ]
 link_delete_link
