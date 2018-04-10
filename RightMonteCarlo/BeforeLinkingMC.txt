@@ -20,11 +20,11 @@ P512L[link_M_link]
 P5S[link_copy_N_link]
 P5S[link_N_link]
 P32767L[link_MASK_link]
-P5S[link_TEN_link]
 P2S[link_SIZE_link]
 P0S[link_ZERO_link]
 P0L[link_ONE_link]
 P1S[link_TWO_link]
+P5S[link_TEN_link]
 #0S[link_FIGURE_SHIFT_link]
 
 U0S[-----------------------ARRAY-------------------------------------]
@@ -60,6 +60,7 @@ U0S[-----------------ГЕНЕРИРОВАНИЕ Y-------------------------------
 T<delete>S[link_void-y-calculating_link]
 H<A>S
 V<y0>S
+A<ONE>s
 U<tempX0>S[link_back2_link]
 S<M>S
 E<back2>S
