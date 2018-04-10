@@ -28,18 +28,25 @@
 
 
 
-T282S
+T475S[delete]
 Z0S
-E83S
-U282S[-------------------------КОНСТАНТЫ ДЛЯ ВЫВОДА-----------------------]
+E127S[start]
+U475S[-------------------------КОНСТАНТЫ ДЛЯ ВЫВОДА-----------------------][delete]
 #0S[link_FIGURE_SHIFT_link]
 P0S[link_print0_link]
 Q0S[link_print1_link]
-U282S[--------------------------КОНСТАНТЫ---------------------------------]
+U475S[--------------------------КОНСТАНТЫ---------------------------------][delete]
 P0S[link_ZERO_link]
 P0L[link_ONE_link]
 P1S[link_TWO_link]
-U282S[-------------------------КООРДИНАТЫ ЧЕРНЫХ ФИГУР--------------------]
+U475S[--------------------------ПЕРЕМЕННЫЕ--------------------------------][delete]
+P3L[link_MAX_STEP_link]
+P3L[link_currentStep_link]
+P7L[link_wfAmount_link]
+U475S[---------ПЕРЕМЕННЫЕ ДЛЯ ХРАНЕНИЯ ТЕУЩИХ ПРОВЕРЯЕМЫХ КООРДИНАТ-------][delete]
+P0S[link_currentX_link]
+P0S[link_currentY_link]
+U475S[-------------------------КООРДИНАТЫ ЧЕРНЫХ ФИГУР--------------------][delete]
 P4S[link_blackFiguresNumber_link]
 P0L[link_X 1 Ч_пешка_link]
 P1S[link_Y 1 Ч_пешка_link]
@@ -57,225 +64,411 @@ P3L[X 7 Ч_пешка]
 P1S[Y 7 Ч_пешка]
 P4S[X 8 Ч_пешка]
 P1S[Y 8 Ч_пешка]
+P3L[link_X 1 Ч_слон_link]
+P3S[link_Y 1 Ч_слон_link]
+P1S[link_X 2 Ч_слон_link]
+P3S[link_Y 2 Ч_слон_link]
+P2S[link_X 1 Ч_ладья_link]
+P1L[link_Y 1 Ч_ладья_link]
+P2L[link_X 2 Ч_ладья_link]
+P1L[link_Y 2 Ч_ладья_link]
+P2L[link_X Ч_ферзь_link]
+P3S[link_Y Ч_ферзь_link]
 P2L[link_X Ч_король_link]
 P0L[link_Y Ч_король_link]
-U282S[-------------------------КООРДИНАТЫ БЕЛОГО КОРОЛЯ-------------------]
+U475S[-------------------------КООРДИНАТЫ БЕЛЫХ ФИГУР-------------------][delete]
+[link_X Б_1_link]
+[link_Y Б_1_link]
+[link_X Б_2_link]
+[link_Y Б_2_link]
+[link_X Б_3_link]
+[link_Y Б_3_link]
+[link_X Б_4_link]
+[link_Y Б_4_link]
+[link_X Б_5_link]
+[link_Y Б_5_link]
+[link_X Б_6_link]
+[link_Y Б_6_link]
+[link_X Б_7_link]
+[link_Y Б_7_link]
+[link_X Б_8_link]
+[link_Y Б_8_link]
+[link_X Б_9_link]
+[link_Y Б_9_link]
+[link_X Б_10_link]
+[link_Y Б_10_link]
+[link_X Б_11_link]
+[link_Y Б_11_link]
+[link_X Б_12_link]
+[link_Y Б_12_link]
+[link_X Б_13_link]
+[link_Y Б_13_link]
+[link_X Б_14_link]
+[link_Y Б_14_link]
+[link_X Б_15_link]
+[link_Y Б_15_link]
 P3S[link_X Б_король_link]
 P0L[link_Y Б_король_link]
-U282S[---------ПЕРЕМЕННЫЕ ДЛЯ ХРАНЕНИЯ ТЕУЩИХ ПРОВЕРЯЕМЫХ КООРДИНАТ-------]
-P0S[link_currentX_link]
-P0S[link_currentY_link]
 Z0S[------МЕТОД МОДИФИКАЦИИ ИНСТРУКЦИЙ И КОНТРОЛЯ ПЕРЕМЕННОЙ ЦИКЛА-------------]
-T282S[link_void modifInstr_link]
-A43S
-S40S
-U43S
-G125S
-T282S
-A41S
-A106S
-T106S
-A41S
-A109S
-T109S
-E83S
+T475S[link_void modifInstr_link, delete]
+A50S[blackFiguresNumber]
+S40S[ONE]
+U50S[blackFiguresNumber]
+G169S[knightStep]
+T475S[delete]
+A41S[TWO]
+A150S[modifInstrX]
+T150S[modifInstrX]
+A41S[TWO]
+A153S[modifInstrY]
+T153S[modifInstrY]
+E127S[start]
 Z0S[-----------НАЧАЛО ПРОГРАММЫ------------------------------------------------]
-T282S[link_start_link]
+T475S[link_start_link, delete]
 Z0S[-----------------ПРОВЕРКА ПРАВОЙ ДИАГОНАЛИ ДЛЯ ТЕКУЩЕЙ ПЕШКИ---------------]
-T282S[link_void checkRightCell_link]
-A44S[link_modifInstrX_link]
-A40S
-T66S
-A45S[link_modifInstrY_link]
-A40S
-T67S
-A63S
-S66S
-G105S
-S40S
-E105S
-T282S
-A64S
-S67S
-G105S
-S40S
-E105S
-G278S
+T475S[link_void checkRightCell_link, delete]
+A51S[link_modifInstrX_link, X 1 Ч_пешка]
+A40S[ONE]
+T47S[currentX]
+A52S[link_modifInstrY_link, Y 1 Ч_пешка]
+A40S[ONE]
+T48S[currentY]
+A110S[X Б_король]
+S47S[currentX]
+G149S[void checkLeftCell]
+S40S[ONE]
+E149S[void checkLeftCell]
+T475S[delete]
+A111S[Y Б_король]
+S48S[currentY]
+G149S[void checkLeftCell]
+S40S[ONE]
+E149S[void checkLeftCell]
+G471S[exitWithShah]
 Z0S[------------------------ПРОВЕРКА ЛЕВОЙ ДИАГОНАЛИ ДЛЯ ТЕКУЩЕЙ ПЕШКИ---------]
-T282S[link_void checkLeftCell_link]
-A44S[link_modifInstrX_link]
-S40S
-T66S
-A45S[link_modifInstrY_link]
-A40S
-T67S
-A63S
-S66S
-G69S
-S40S
-E69S
-T282S
-A64S
-S67S
-G69S
-S40S
-E69S
-G278S
+T475S[link_void checkLeftCell_link, delete]
+A51S[link_modifInstrX_link, X 1 Ч_пешка]
+S40S[ONE]
+T47S[currentX]
+A52S[link_modifInstrY_link, Y 1 Ч_пешка]
+A40S[ONE]
+T48S[currentY]
+A110S[X Б_король]
+S47S[currentX]
+G113S[void modifInstr]
+S40S[ONE]
+E113S[void modifInstr]
+T475S[delete]
+A111S[Y Б_король]
+S48S[currentY]
+G113S[void modifInstr]
+S40S[ONE]
+E113S[void modifInstr]
+G471S[exitWithShah]
 Z0S[-----------------------ПРОВЕРКА ВСЕХ КЛЕТОК ВОКРУГ КОРОЛЯ------------------]
-T282S[link_knightStep_link,-------------------ЛЕВАЯ ВЕРХНЯЯ ДИАГОНАЛЬ]
-A60S
-S40S
-T66S
-A61S
-A40S
-T67S
-A63S
-S66S
-G144S
-S40S
-E144S
-T282S
-A64S
-S67S
-G144S
-S40S
-E144S
-G278S
-T282S[link_up_link, --------------------------------------------ВВЕРХ]
-A60S
-T66S
-A61S
-A40S
-T67S
-A63S
-S66S
-G162S
-S40S
-E162S
-T282S
-A64S
-S67S
-G162S
-S40S
-E162S
-G278S
-T282S[link_rightUp_link,---------------------ПРАВАЯ ВЕРХНЯЯ ДИАГОНАЛЬ]
-A60S
-A40S
-T66S
-A61S
-A40S
-T67S
-A63S
-S66S
-G181S
-S40S
-E181S
-T282S
-A64S
-S67S
-G181S
-S40S
-E181S
-G278S
-T282S[link_right_link, ----------------------------------------ВПРАВО]
-A60S
-A40S
-T66S
-A61S
-T67S
-A63S
-S66S
-G199S
-S40S
-E199S
-T282S
-A64S
-S67S
-G199S
-S40S
-E199S
-G278S
-T282S[link_rightDown_link,--------------------ПРАВАЯ НИЖНЯЯ ДИАГОНАЛЬ]
-A60S
-A40S
-T66S
-A61S
-S40S
-T67S
-A63S
-S66S
-G218S
-S40S
-E218S
-T282S
-A64S
-S67S
-G218S
-S40S
-E218S
-G278S
-T282S[link_down_link,--------------------------------------------ВНИЗ]
-A60S
-T66S
-A61S
-S40S
-T67S
-A63S
-S66S
-G236S
-S40S
-E236S
-T282S
-A64S
-S67S
-G236S
-S40S
-E236S
-G278S
-T282S[link_leftDown_link,----------------------ЛЕВАЯ НИЖНЯЯ ДИАГОНАЛЬ]
-A60S
-S40S
-T66S
-A61S
-S40S
-T67S
-A63S
-S66S
-G255S
-S40S
-E255S
-T282S
-A64S
-S67S
-G255S
-S40S
-E255S
-G278S
-T282S[link_left_link,------------------------------------------ВЛЕВО]
-A60S
-S40S
-T66S
-A61S
-T67S
-A63S
-S66S
-G274S
-S40S
-E274S
-T282S
-A64S
-S67S
-G274S
-S40S
-E274S
-G278S
+T475S[link_knightStep_link,-------------------ЛЕВАЯ ВЕРХНЯЯ ДИАГОНАЛЬ, delete]
+A77S[X Ч_король]
+S40S[ONE]
+T47S[currentX]
+A78S[Y Ч_король]
+A40S[ONE]
+T48S[currentY]
+A110S[X Б_король]
+S47S[currentX]
+G337S[up]
+S40S[ONE]
+E337S[up]
+T475S[delete]
+A111S[Y Б_король]
+S48S[currentY]
+G337S[up]
+S40S[ONE]
+E337S[up]
+G471S[exitWithShah]
+T475S[link_up_link, --------------------------------------------ВВЕРХ, delete]
+A77S[X Ч_король]
+T47S[currentX]
+A78S[Y Ч_король]
+A40S[ONE]
+T48S[currentY]
+A110S[X Б_король]
+S47S[currentX]
+G355S[rightUp]
+S40S[ONE]
+E355S[rightUp]
+T475S[delete]
+A111S[Y Б_король]
+S48S[currentY]
+G355S[rightUp]
+S40S[ONE]
+E355S[rightUp]
+G471S[exitWithShah]
+T475S[link_rightUp_link,---------------------ПРАВАЯ ВЕРХНЯЯ ДИАГОНАЛЬ, delete]
+A77S[X Ч_король]
+A40S[ONE]
+T47S[currentX]
+A78S[Y Ч_король]
+A40S[ONE]
+T48S[currentY]
+A110S[X Б_король]
+S47S[currentX]
+G374S[right]
+S40S[ONE]
+E374S[right]
+T475S[delete]
+A111S[Y Б_король]
+S48S[currentY]
+G374S[right]
+S40S[ONE]
+E374S[right]
+G471S[exitWithShah]
+T475S[link_right_link, ----------------------------------------ВПРАВО, delete]
+A77S[X Ч_король]
+A40S[ONE]
+T47S[currentX]
+A78S[Y Ч_король]
+T48S[currentY]
+A110S[X Б_король]
+S47S[currentX]
+G392S[rightDown]
+S40S[ONE]
+E392S[rightDown]
+T475S[delete]
+A111S[Y Б_король]
+S48S[currentY]
+G392S[rightDown]
+S40S[ONE]
+E392S[rightDown]
+G471S[exitWithShah]
+T475S[link_rightDown_link,--------------------ПРАВАЯ НИЖНЯЯ ДИАГОНАЛЬ, delete]
+A77S[X Ч_король]
+A40S[ONE]
+T47S[currentX]
+A78S[Y Ч_король]
+S40S[ONE]
+T48S[currentY]
+A110S[X Б_король]
+S47S[currentX]
+G411S[down]
+S40S[ONE]
+E411S[down]
+T475S[delete]
+A111S[Y Б_король]
+S48S[currentY]
+G411S[down]
+S40S[ONE]
+E411S[down]
+G471S[exitWithShah]
+T475S[link_down_link,--------------------------------------------ВНИЗ, delete]
+A77S[X Ч_король]
+T47S[currentX]
+A78S[Y Ч_король]
+S40S[ONE]
+T48S[currentY]
+A110S[X Б_король]
+S47S[currentX]
+G429S[leftDown]
+S40S[ONE]
+E429S[leftDown]
+T475S[delete]
+A111S[Y Б_король]
+S48S[currentY]
+G429S[leftDown]
+S40S[ONE]
+E429S[leftDown]
+G471S[exitWithShah]
+T475S[link_leftDown_link,----------------------ЛЕВАЯ НИЖНЯЯ ДИАГОНАЛЬ, delete]
+A77S[X Ч_король]
+S40S[ONE]
+T47S[currentX]
+A78S[Y Ч_король]
+S40S[ONE]
+T48S[currentY]
+A110S[X Б_король]
+S47S[currentX]
+G448S[left]
+S40S[ONE]
+E448S[left]
+T475S[delete]
+A111S[Y Б_король]
+S48S[currentY]
+G448S[left]
+S40S[ONE]
+E448S[left]
+G471S[exitWithShah]
+T475S[link_left_link,------------------------------------------ВЛЕВО, delete]
+A77S[X Ч_король]
+S40S[ONE]
+T47S[currentX]
+A78S[Y Ч_король]
+T48S[currentY]
+A110S[X Б_король]
+S47S[currentX]
+G467S[exitWithoutShah]
+S40S[ONE]
+E467S[exitWithoutShah]
+T475S[delete]
+A111S[Y Б_король]
+S48S[currentY]
+G467S[exitWithoutShah]
+S40S[ONE]
+E467S[exitWithoutShah]
+G471S[exitWithShah]
+Z0S[--------------------------------ПРОВЕРКА ХОДОВ ФЕРЗЯ---------------------------]
+T475S[link_queenStep_link,-------------------ЛЕВАЯ ВЕРХНЯЯ ДИАГОНАЛЬ, delete]
+A77S[X Ч_король]
+S40S[ONE]
+T47S[currentX]
+A78S[Y Ч_король]
+A40S[ONE]
+T48S[currentY]
+A110S[X Б_король]
+S47S[currentX]
+G337S[up]
+S40S[ONE]
+E337S[up]
+T475S[delete]
+A111S[Y Б_король]
+S48S[currentY]
+G337S[up]
+S40S[ONE]
+E337S[up]
+G471S[exitWithShah]
+T475S[link_up_link, --------------------------------------------ВВЕРХ, delete]
+A77S[X Ч_король]
+T47S[currentX]
+A78S[Y Ч_король]
+A40S[ONE]
+T48S[currentY]
+A110S[X Б_король]
+S47S[currentX]
+G355S[rightUp]
+S40S[ONE]
+E355S[rightUp]
+T475S[delete]
+A111S[Y Б_король]
+S48S[currentY]
+G355S[rightUp]
+S40S[ONE]
+E355S[rightUp]
+G471S[exitWithShah]
+T475S[link_rightUp_link,---------------------ПРАВАЯ ВЕРХНЯЯ ДИАГОНАЛЬ, delete]
+A77S[X Ч_король]
+A40S[ONE]
+T47S[currentX]
+A78S[Y Ч_король]
+A40S[ONE]
+T48S[currentY]
+A110S[X Б_король]
+S47S[currentX]
+G374S[right]
+S40S[ONE]
+E374S[right]
+T475S[delete]
+A111S[Y Б_король]
+S48S[currentY]
+G374S[right]
+S40S[ONE]
+E374S[right]
+G471S[exitWithShah]
+T475S[link_right_link, ----------------------------------------ВПРАВО, delete]
+A77S[X Ч_король]
+A40S[ONE]
+T47S[currentX]
+A78S[Y Ч_король]
+T48S[currentY]
+A110S[X Б_король]
+S47S[currentX]
+G392S[rightDown]
+S40S[ONE]
+E392S[rightDown]
+T475S[delete]
+A111S[Y Б_король]
+S48S[currentY]
+G392S[rightDown]
+S40S[ONE]
+E392S[rightDown]
+G471S[exitWithShah]
+T475S[link_rightDown_link,--------------------ПРАВАЯ НИЖНЯЯ ДИАГОНАЛЬ, delete]
+A77S[X Ч_король]
+A40S[ONE]
+T47S[currentX]
+A78S[Y Ч_король]
+S40S[ONE]
+T48S[currentY]
+A110S[X Б_король]
+S47S[currentX]
+G411S[down]
+S40S[ONE]
+E411S[down]
+T475S[delete]
+A111S[Y Б_король]
+S48S[currentY]
+G411S[down]
+S40S[ONE]
+E411S[down]
+G471S[exitWithShah]
+T475S[link_down_link,--------------------------------------------ВНИЗ, delete]
+A77S[X Ч_король]
+T47S[currentX]
+A78S[Y Ч_король]
+S40S[ONE]
+T48S[currentY]
+A110S[X Б_король]
+S47S[currentX]
+G429S[leftDown]
+S40S[ONE]
+E429S[leftDown]
+T475S[delete]
+A111S[Y Б_король]
+S48S[currentY]
+G429S[leftDown]
+S40S[ONE]
+E429S[leftDown]
+G471S[exitWithShah]
+T475S[link_leftDown_link,----------------------ЛЕВАЯ НИЖНЯЯ ДИАГОНАЛЬ, delete]
+A77S[X Ч_король]
+S40S[ONE]
+T47S[currentX]
+A78S[Y Ч_король]
+S40S[ONE]
+T48S[currentY]
+A110S[X Б_король]
+S47S[currentX]
+G448S[left]
+S40S[ONE]
+E448S[left]
+T475S[delete]
+A111S[Y Б_король]
+S48S[currentY]
+G448S[left]
+S40S[ONE]
+E448S[left]
+G471S[exitWithShah]
+T475S[link_left_link,------------------------------------------ВЛЕВО, delete]
+A77S[X Ч_король]
+S40S[ONE]
+T47S[currentX]
+A78S[Y Ч_король]
+T48S[currentY]
+A110S[X Б_король]
+S47S[currentX]
+G467S[exitWithoutShah]
+S40S[ONE]
+E467S[exitWithoutShah]
+T475S[delete]
+A111S[Y Б_король]
+S48S[currentY]
+G467S[exitWithoutShah]
+S40S[ONE]
+E467S[exitWithoutShah]
+G471S[exitWithShah]
 Z0S[--------------------------------ФИНАЛЬНЫЕ ВЫВОДЫ---------------------------]
-T282S[link_exitWithoutShah_link]
-O35S
-O36S
-E281S
-T282S[link_exitWithShah_link]
-O35S
-O37S
-Z0S[link_finalExit_link]
+T475S[link_exitWithoutShah_link, delete]
+O35S[FIGURE_SHIFT]
+O36S[print0]
+E474S[finalExit]
+T475S[link_exitWithShah_link, delete]
+O35S[FIGURE_SHIFT]
+O37S[print1]
+Z0S[link_finalExit_link]
