@@ -1,0 +1,178 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+T179S[delete]
+U0S
+E66S[start]
+U0S[---------------------VARIABLES_----------------------------------]
+P0S[link_sum_link]
+P32767L[link_x_link]
+P32767L[link_y_link]
+P0S[link_last-x0_link]
+P0S[link_last-y0_link]
+P0S[link_xmod_link]
+P0S[link_ymod_link]
+P32767L[link_MASK_link]
+P0S[link_currentRazr_link]
+U0S[---------------------CONST---------------------------------------]
+P500L[link_copyN_link]
+P500L[link_N_link]
+P328S[link_STEP_link]
+P50S[link_HUND_link]
+P0L[link_ONE_link]
+P2S[link_SIZE_link]
+P0L[link_ONE_link]
+P1S[link_TWO_link]
+P5S[link_TEN_link]
+#0S[link_FIGURE_SHIFT_link]
+P11L[link_A_link]
+P980S[link_B_link]
+P512L[link_M_link]
+P11S[link_L_link]
+U0S[-----------------------ARRAY-------------------------------------]
+P0S[link_1_Integer_link]
+M0S[link_Dot_link]
+P0S[link_1_Decimal_link]
+P0S[link_2_Decimal_link]
+P0S[link_3_Decimal_link]
+P0S[link_4_Decimal_link]
+T179S[link_start_link, delete]
+A46S[N]
+S51S[ONE]
+T46S[N]
+U0S[----------------ГЕНЕРИРОВАНИЕ X----------------------------------]
+T179S[link_void-x-calculating_link, delete]
+H55S[A]
+V36S[x]
+L1024S
+L4S
+U38S[link_back1_link, last-x0]
+S57S[M]
+E76S[back1]
+T179S[delete]
+A38S[last-x0]
+T36S[x]
+U0S[-----------------ГЕНЕРИРОВАНИЕ Y---------------------------------]
+T179S[link_void-y-calculating_link, delete]
+H56S[B]
+V37S[y]
+L1024S
+L4S
+U39S[link_back2_link, last-y0]
+S58S[L]
+E88S[back2]
+T179S[delete]
+A39S[last-y0]
+T37S[y]
+U0S[-----------------УНИЧТОЖЕНИЕ ЗНАКА-----------------]
+H36S[x]
+V42S[MASK]
+T40S[xmod]
+H37S[y]
+V42S[MASK]
+T41S[ymod]
+U0S[-----------------ПРОВЕРКА НА ПОПАДАНИЕ В ОБЛАСТЬ-----------------]
+T179S[link_check_link, delete]
+H40S[xmod]
+V40S[xmod]
+S41S[ymod]
+G66S[start]
+T179S[delete]
+A46S[N]
+S51S[ONE]
+U46S[N]
+U0S
+G118S[devStart]
+T179S[delete]
+A35S[sum]
+A51S[ONE]
+T35S[sum]
+E66S[start]
+T179S[link_devStart_link, delete]
+U0S
+A45S[copyN]
+T46S[N]
+H53S[TEN]
+V35S[sum]
+L1024S
+L4S
+T35S[sum]
+T179S[link_dev_link, delete]
+U0S[-----------------------фИНАЛЬНОЕ ДЕЛЕНИЕ-------------------------]
+A35S[sum]
+S46S[N]
+G137S[nextRazr]
+T35S[sum]
+A62S[link_modifInstr1_link, 1_Decimal]
+A51S[ONE]
+T62S[link_modifInstr2_link, 1_Decimal]
+E127S[dev]
+T179S[link_nextRazr_link, delete]
+H53S[TEN]
+V35S[sum]
+L1024S
+L4S
+T35S[sum]
+A52S[TWO]
+A133S[modifInstr1]
+T133S[modifInstr1]
+A52S[TWO]
+A135S[modifInstr2]
+T135S[modifInstr2]
+A50S[SIZE]
+S51S[ONE]
+U50S[SIZE]
+G154S[finalExit]
+E127S[dev]
+U0S[link_finalExit_link,-------------ВЫВОД ПОЛУЧЕННОГО ЧИСЛА---------]
+T179S[delete]
+O54S[FIGURE_SHIFT]
+A60S[1_Integer]
+L1024S
+T60S[1_Integer]
+O60S[1_Integer]
+O61S[Dot]
+A62S[1_Decimal]
+L1024S
+T62S[1_Decimal]
+O62S[1_Decimal]
+A63S[2_Decimal]
+L1024S
+T63S[2_Decimal]
+O63S[2_Decimal]
+A64S[3_Decimal]
+L1024S
+T64S[3_Decimal]
+O64S[3_Decimal]
+A65S[4_Decimal]
+L1024S
+T65S[4_Decimal]
+O65S[4_Decimal]
+U0S
