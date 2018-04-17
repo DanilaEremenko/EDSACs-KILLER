@@ -1,6 +1,6 @@
 public class Main {
-    private static String input = "RightMonteCarlo/BeforeLinkingMC.txt";
-    private static String output = "RightMonteCarlo/AfterLinkingMC.txt";
+    private static String input = "MonteCarlo/BeforeLinkingMC.txt";
+    private static String output = "MonteCarlo/AfterLinkingMC.txt";
     private static boolean withComments = true;
 
     public static void main(String[] args) {
